@@ -1,4 +1,6 @@
-﻿namespace PowerUtils.xUnit.Extensions.Tests.Fakes
+﻿using System.Threading.Tasks;
+
+namespace PowerUtils.xUnit.Extensions.Tests.Fakes
 {
     public class FakeClass
     {
@@ -56,6 +58,35 @@
         private void _method4_2()
         {
             throw new System.ArgumentException("Message exception 4_2");
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "<Pending>")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "<Pending>")]
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
+        private async Task<int> _method5_1Async(int value)
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
+        {
+            return value * 2;
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "<Pending>")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "<Pending>")]
+        private Task<int> _method5_2Async(int value)
+        {
+            throw new System.ArgumentException("Message exception 5_2");
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "<Pending>")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "<Pending>")]
+        private Task _method6_1Async()
+        {
+            return Task.CompletedTask;
+        }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "<Pending>")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "<Pending>")]
+        private Task _method6_2Async()
+        {
+            throw new System.ArgumentException("Message exception 6_2");
         }
     }
 }

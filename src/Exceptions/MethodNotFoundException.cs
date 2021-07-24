@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PowerUtils.xUnit.Extensions
+namespace PowerUtils.xUnit.Extensions.Exceptions
 {
     [Serializable]
     public class MethodNotFoundException : Exception

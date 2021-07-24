@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using PowerUtils.xUnit.Extensions.Exceptions;
+using System.Reflection;
+using System.Threading.Tasks;
 
 namespace PowerUtils.xUnit.Extensions
 {
@@ -12,6 +14,7 @@ namespace PowerUtils.xUnit.Extensions
         /// <param name="methodName">Name of the private method you want to call</param>
         /// <param name="parameters">Petermeters to send to private method</param>
         /// <returns>Value returned from method</returns>
+        /// <exception cref="MethodNotFoundException">When the <paramref name="methodName">methodName</paramref> not found</exception>
         public static TResult InvokePrivateMethod<TResult>(this object obj, string methodName, params object[] parameters)
         {
             var objType = obj.GetType();
@@ -39,6 +42,7 @@ namespace PowerUtils.xUnit.Extensions
         /// <param name="obj">Object containing the method/param>
         /// <param name="methodName">Name of the private method you want to call</param>
         /// <param name="parameters">Petermeters to send to private method</param>
+        /// <exception cref="MethodNotFoundException">When the <paramref name="methodName">methodName</paramref> not found</exception>
         public static void InvokePrivateMethod(this object obj, string methodName, params object[] parameters)
         {
             var objType = obj.GetType();
@@ -52,6 +56,75 @@ namespace PowerUtils.xUnit.Extensions
             try
             {
                 methodInfo.Invoke(obj, parameters);
+            }
+            catch(TargetInvocationException exception)
+            {
+                throw exception?.InnerException ?? exception;
+            }
+        }
+
+        /// <summary>
+        /// Invoke asynchronously private methods
+        /// </summary>
+        /// <typeparam name="TResult">Returns type</typeparam>
+        /// <param name="obj">Object containing the method/param>
+        /// <param name="methodName">Name of the private method you want to call</param>
+        /// <param name="parameters">Petermeters to send to private method</param>
+        /// <returns>Value returned from method</returns>
+        /// <exception cref="MethodNotFoundException">When the <paramref name="methodName">methodName</paramref> not found</exception>
+        /// <exception cref="CallMethodException">When it is not possible to call the method <paramref name="methodName">methodName</paramref></exception>
+        public static async Task<TResult> InvokePrivateMethodAsync<TResult>(this object obj, string methodName, params object[] parameters)
+        {
+            var objType = obj.GetType();
+            var methodInfo = objType.GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Instance);
+
+            if(methodInfo == null)
+            {
+                throw new MethodNotFoundException(methodName);
+            }
+
+            try
+            {
+                var response = (Task<TResult>)methodInfo.Invoke(obj, parameters);
+                if(response == null)
+                {
+                    throw new CallMethodException(methodName);
+                }
+
+                return await response;
+            }
+            catch(TargetInvocationException exception)
+            {
+                throw exception?.InnerException ?? exception;
+            }
+        }
+
+        /// <summary>
+        /// Invoke asynchronously private methods
+        /// </summary>
+        /// <param name="obj">Object containing the method/param>
+        /// <param name="methodName">Name of the private method you want to call</param>
+        /// <param name="parameters">Petermeters to send to private method</param>
+        /// <exception cref="MethodNotFoundException">When the <paramref name="methodName">methodName</paramref> not found</exception>
+        /// <exception cref="CallMethodException">When it is not possible to call the method <paramref name="methodName">methodName</paramref></exception>
+        public static async Task InvokePrivateMethodAsync(this object obj, string methodName, params object[] parameters)
+        {
+            var objType = obj.GetType();
+            var methodInfo = objType.GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Instance);
+
+            if(methodInfo == null)
+            {
+                throw new MethodNotFoundException(methodName);
+            }
+
+            try
+            {
+                var response = (Task)methodInfo.Invoke(obj, parameters);
+                if(response == null)
+                {
+                    throw new CallMethodException(methodName);
+                }
+                await response;
             }
             catch(TargetInvocationException exception)
             {

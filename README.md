@@ -51,7 +51,7 @@ dotnet add package PowerUtils.xUnit.Extensions
 Extension to invoke private methods
 
 ```csharp
-public classSampleClass
+public class SampleClass
 {
     private bool _methodName1(int value)
     {
@@ -70,6 +70,14 @@ public classSampleClass
     private void _methodName4()
     {
     }
+
+    private Task<bool> _methodName5Async()
+    {
+    }
+
+    private Task _methodName6Async()
+    {
+    }
 }
 ```
 
@@ -78,8 +86,12 @@ var sampleClass = new SampleClass();
 
 var result1 = sampleClass.InvokePrivateMethod<bool>("_methodName1", 1);
 var result2 = sampleClass.InvokePrivateMethod<bool>("_methodName2");
+
 sampleClass.InvokePrivateMethod("_methodName3", 532);
 sampleClass.InvokePrivateMethod("_methodName4");
+
+var result3 = await sampleClass.InvokePrivateMethodAsync<bool>("_methodName5Async", 1);
+await sampleClass.InvokePrivateMethodAsync("_methodName6Async");
 ```
 
 
@@ -119,7 +131,15 @@ public class Tests
 ## Release Notes
 
 
-### v1.0.0 - 2021/07/23
+### v1.1.0 - 2021/07/24
 
 #### New features
+- Added async private method invocations
+  - `obj.InvokePrivateMethodAsync<TResult>();`
+  - `obj.InvokePrivateMethodAsync();`
+
+
+
+### v1.0.0 - 2021/07/23
+
 - Kick start project
