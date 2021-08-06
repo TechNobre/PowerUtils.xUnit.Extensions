@@ -158,7 +158,7 @@ public class Tests
 
 #### New features
 - Add new exceptions `PropertyNotFoundException` and `FieldNotFoundException`
-- Added new extensions to set private properties
+- Added new extensions to set private properties and field
 
 
 
