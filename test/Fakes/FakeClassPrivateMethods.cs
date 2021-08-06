@@ -2,7 +2,7 @@
 
 namespace PowerUtils.xUnit.Extensions.Tests.Fakes
 {
-    public class FakeClass
+    public class FakeClassPrivateMethods
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "<Pending>")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "<Pending>")]

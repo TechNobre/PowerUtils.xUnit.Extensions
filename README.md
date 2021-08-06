@@ -19,6 +19,7 @@ Utils, helpers and extensions to create tests with xUnti
 - [Installation](#Installation)
 - [Extensions](#Extensions)
   - [InvokePrivateMethod](#object.InvokePrivateMethod)
+  - [SetPrivateProperty and SetPrivateField](#object.SetPrivateProperty)
 - [Helpers](#Helpers)
   - [Sort tests by priority](#SortTestsByPriority)
 
@@ -95,6 +96,28 @@ await sampleClass.InvokePrivateMethodAsync("_methodName6Async");
 ```
 
 
+
+#### object.SetPrivateProperty(); and object.SetPrivateField() <a name="object.SetPrivateProperty"></a>
+Extensions to set private properties and fields
+
+```csharp
+public class SampleClass
+{
+    public string PropSetPrivate { get; private set; }
+    private string _propPrivate { get; set; }
+    private string _privateField;
+}
+```
+
+```csharp
+var sampleClass = new SampleClass();
+
+obj.SetPrivateProperty(p => p.PropSetPrivate, "Value");
+obj.SetPrivateProperty("_propPrivate", "Value");
+obj.SetPrivateField("_privateField", "Value");
+```
+
+
 ### Helpers <a name="Helpers"></a>
 
 #### Sort tests by priority <a name="SortTestsByPriority"></a>
@@ -129,6 +152,14 @@ public class Tests
 
 
 ## Release Notes
+
+
+### v1.2.0 - 2021/08/06
+
+#### New features
+- Add new exceptions `PropertyNotFoundException` and `FieldNotFoundException`
+- Added new extensions to set private properties and fields
+
 
 
 ### v1.1.0 - 2021/07/24
