@@ -12,7 +12,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         public void PrivateMethod_WithReturnAndParameters_ReturnsValue()
         {
             // Arrange
-            var obj = new FakeClass();
+            var obj = new FakeClassPrivateMethods();
             var input = 32;
 
 
@@ -30,7 +30,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         public void PrivateMethod_WithReturnAndParameters_ReturnsException()
         {
             // Arrange
-            var obj = new FakeClass();
+            var obj = new FakeClassPrivateMethods();
             var input = 32;
 
 
@@ -49,7 +49,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         public void PrivateMethod_WithReturn_ReturnsValue()
         {
             // Arrange
-            var obj = new FakeClass();
+            var obj = new FakeClassPrivateMethods();
 
 
             // Act
@@ -66,7 +66,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         public void PrivateMethod_WithReturn_ReturnsException()
         {
             // Arrange
-            var obj = new FakeClass();
+            var obj = new FakeClassPrivateMethods();
 
 
             // Act
@@ -84,7 +84,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         public void PrivateMethod_WithParameters_WithoutReturn()
         {
             // Arrange
-            var obj = new FakeClass();
+            var obj = new FakeClassPrivateMethods();
             var input = 32;
 
 
@@ -97,7 +97,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         public void PrivateMethod_WithParameters_ReturnsException()
         {
             // Arrange
-            var obj = new FakeClass();
+            var obj = new FakeClassPrivateMethods();
             var input = 32;
 
 
@@ -116,7 +116,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         public void PrivateMethod_WithoutParametersAndRetun()
         {
             // Arrange
-            var obj = new FakeClass();
+            var obj = new FakeClassPrivateMethods();
 
 
             // Act & Assert
@@ -128,7 +128,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         public void PrivateMethod_WithoutParametersAndRetun_ReturnsException()
         {
             // Arrange
-            var obj = new FakeClass();
+            var obj = new FakeClassPrivateMethods();
 
 
             // Act
@@ -146,7 +146,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         public void PrivateMethod_UnexistingMethodWithoutParametersAndRetun_ReturnsMethodNotFoundException()
         {
             // Arrange
-            var obj = new FakeClass();
+            var obj = new FakeClassPrivateMethods();
 
 
             // Act
@@ -164,7 +164,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         public void PrivateMethod_UnexistingMethodWitRetun_ReturnsMethodNotFoundException()
         {
             // Arrange
-            var obj = new FakeClass();
+            var obj = new FakeClassPrivateMethods();
 
 
             // Act
@@ -184,7 +184,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         public void PrivateAsyncMethod_WithReturnAndParameters_ReturnsValue()
         {
             // Arrange
-            var obj = new FakeClass();
+            var obj = new FakeClassPrivateMethods();
             var input = 10;
 
 
@@ -204,7 +204,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         public void PrivateAsyncMethod_WithReturnAndParameters_ReturnsException()
         {
             // Arrange
-            var obj = new FakeClass();
+            var obj = new FakeClassPrivateMethods();
             var input = 32;
 
 
@@ -232,7 +232,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         public void PrivateAsyncMethod_WithoutParametersAndRetun()
         {
             // Arrange
-            var obj = new FakeClass();
+            var obj = new FakeClassPrivateMethods();
 
 
             // Act & Assert
@@ -244,7 +244,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         public void PrivateAsyncMethod_WithoutParametersAndRetun_ReturnsException()
         {
             // Arrange
-            var obj = new FakeClass();
+            var obj = new FakeClassPrivateMethods();
 
 
             // Act
@@ -273,7 +273,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         public void PrivateAsyncMethod_CallWithAsyncInvoke_ReturnsException1()
         {
             // Arrange
-            var obj = new FakeClass();
+            var obj = new FakeClassPrivateMethods();
 
 
             // Act
@@ -301,7 +301,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         public void PrivateAsyncMethod_CallWithAsyncInvoke_ReturnsException2()
         {
             // Arrange
-            var obj = new FakeClass();
+            var obj = new FakeClassPrivateMethods();
 
 
             // Act
