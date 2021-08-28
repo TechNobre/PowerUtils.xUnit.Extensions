@@ -6,6 +6,7 @@
 
         private string _propPrivate { get; set; }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0044:Add readonly modifier", Justification = "<Pending>")]
         private string _privateField;
 
         public string GetValueOf_propPrivate()
