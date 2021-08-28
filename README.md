@@ -7,10 +7,12 @@ Utils, helpers and extensions to create tests with xUnti
 
 
 
+
 ## Support to
 - .NET 2.0 or more
 - .NET Framework 4.6.2 or more
 - .NET Standard 2.0 or more
+
 
 
 
@@ -22,7 +24,8 @@ Utils, helpers and extensions to create tests with xUnti
   - [SetPrivateProperty and SetPrivateField](#object.SetPrivateProperty)
 - [Helpers](#Helpers)
   - [Sort tests by priority](#SortTestsByPriority)
-
+- [Factories](#Factories)
+  - [ObjectFactory](#Factories-ObjectFactory)
 
 
 ## Documentation
@@ -139,9 +142,40 @@ public class Tests
 ```
 
 
+### Factories <a name="Factories"></a>
+
+#### ObjectFactory <a name="Factories-ObjectFactory"></a>
+Factory to create an object by non public constructor
+
+```csharp
+public class TestObject
+{
+    public string Name { get; private set; }
+    public int Age { get; private set; }
+
+    private TestObject()
+    {
+        this.Name = "Example name";
+        this.Age = 21;
+    }
+
+    protected TestObject(string name, int age)
+    {
+        this.Name = name;
+        this.Age = age;
+    }
+}
+
+var obj1 = ObjectFactory.Create<TestObject>();
+var obj2 = ObjectFactory.Create<TestObject>("My name", 50);
+```
+
+
+
 ## Contribution
 
 *Help me to help others*
+
 
 
 
@@ -151,7 +185,16 @@ public class Tests
 
 
 
+
 ## Release Notes
+
+
+### v1.3.0 - 2021/08/28
+
+#### New features
+- Add new exception `ConstructorNotFoundException`
+- Added new factory to create objects by non public constructor
+
 
 
 ### v1.2.0 - 2021/08/06

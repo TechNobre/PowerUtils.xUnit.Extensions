@@ -13,11 +13,11 @@ namespace PowerUtils.xUnit.Extensions.Tests
         {
             // Arrange
             var obj = new FakeClassPrivateMethods();
-            var input = 32;
+            int input = 32;
 
 
             // Act
-            var act = obj.InvokePrivateMethod<int>("_method1_1", input);
+            int act = obj.InvokePrivateMethod<int>("_method1_1", input);
 
 
             // Assert
@@ -31,7 +31,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         {
             // Arrange
             var obj = new FakeClassPrivateMethods();
-            var input = 32;
+            int input = 32;
 
 
             // Act
@@ -53,7 +53,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
 
             // Act
-            var act = obj.InvokePrivateMethod<int>("_method2_1");
+            int act = obj.InvokePrivateMethod<int>("_method2_1");
 
 
             // Assert
@@ -85,7 +85,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         {
             // Arrange
             var obj = new FakeClassPrivateMethods();
-            var input = 32;
+            int input = 32;
 
 
             // Act & Assert
@@ -98,7 +98,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         {
             // Arrange
             var obj = new FakeClassPrivateMethods();
-            var input = 32;
+            int input = 32;
 
 
             // Act
@@ -185,11 +185,11 @@ namespace PowerUtils.xUnit.Extensions.Tests
         {
             // Arrange
             var obj = new FakeClassPrivateMethods();
-            var input = 10;
+            int input = 10;
 
 
             // Act
-            var act = obj
+            int act = obj
                 .InvokePrivateMethodAsync<int>("_method5_1Async", input)
                 .Result;
 
@@ -205,14 +205,14 @@ namespace PowerUtils.xUnit.Extensions.Tests
         {
             // Arrange
             var obj = new FakeClassPrivateMethods();
-            var input = 32;
+            int input = 32;
 
 
             // Act
             Exception act = null;
             try
             {
-                var response = obj.InvokePrivateMethodAsync<int>("_method5_2Async", input).Result;
+                int response = obj.InvokePrivateMethodAsync<int>("_method5_2Async", input).Result;
             }
             catch(AggregateException exception)
             {
@@ -308,7 +308,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
             Exception act = null;
             try
             {
-                var response = obj.InvokePrivateMethodAsync<bool>("_method4_1").Result;
+                bool response = obj.InvokePrivateMethodAsync<bool>("_method4_1").Result;
             }
             catch(AggregateException exception)
             {

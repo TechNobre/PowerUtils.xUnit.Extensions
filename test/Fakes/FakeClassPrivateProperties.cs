@@ -6,9 +6,8 @@
 
         private string _propPrivate { get; set; }
 
-#pragma warning disable IDE0044 // Add readonly modifier
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0044:Add readonly modifier", Justification = "<Pending>")]
         private string _privateField;
-#pragma warning restore IDE0044 // Add readonly modifier
 
         public string GetValueOf_propPrivate()
         {

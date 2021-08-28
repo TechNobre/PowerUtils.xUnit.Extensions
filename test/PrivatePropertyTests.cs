@@ -56,7 +56,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
             // Act
             obj.SetPrivateProperty("_propPrivate", value);
-            var act = obj.GetValueOf_propPrivate();
+            string act = obj.GetValueOf_propPrivate();
 
 
             // Assert
@@ -170,7 +170,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
             // Act
             obj.SetPrivateField("_privateField", value);
-            var act = obj.GetValueOf_privateField();
+            string act = obj.GetValueOf_privateField();
 
 
             // Assert
