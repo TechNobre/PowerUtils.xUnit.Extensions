@@ -6,7 +6,9 @@
 
         private string _propPrivate { get; set; }
 
+#pragma warning disable IDE0044 // Add readonly modifier
         private string _privateField;
+#pragma warning restore IDE0044 // Add readonly modifier
 
         public string GetValueOf_propPrivate()
         {
