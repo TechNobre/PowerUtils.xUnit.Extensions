@@ -23,10 +23,10 @@
     <Description>Helpers, extensions and utilities for tests with xUnit</Description>
     <PackageReleaseNotes>
       - Added support to .NET 6
-      - Discontinued the method `PrivatePropertyExtensions.SetPrivateProperty`;
-      - Discontinued the method `PrivatePropertyExtensions.SetPrivateField`;
-      - Discontinued the method `PrivatePropertyExtensions.InvokePrivateMethod`;
-      - Discontinued the method `PrivatePropertyExtensions.InvokePrivateMethodAsync`;
+      - Discontinued the method `PrivatePropertyExtensions.SetPrivateProperty`. New method `SetNonPublicProperty`;
+      - Discontinued the method `PrivatePropertyExtensions.SetPrivateField`. New method `SetNonPublicField`;
+      - Discontinued the method `PrivatePropertyExtensions.InvokePrivateMethod`. New method `InvokeNonPublicMethod`;
+      - Discontinued the method `PrivatePropertyExtensions.InvokePrivateMethodAsync`. New method `InvokeNonPublicMethodAsync`;
     </PackageReleaseNotes>
     <Summary>Helpers, extensions and utilities for manipulating</Summary>
     <PackageTags>PowerUtils;Utils;Helpers;Tests;xUnit;Extension;Extensions</PackageTags>

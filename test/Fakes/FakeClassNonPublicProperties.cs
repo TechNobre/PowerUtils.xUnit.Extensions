@@ -1,6 +1,6 @@
 ﻿namespace PowerUtils.xUnit.Extensions.Tests.Fakes
 {
-    public class FakeClassPrivateProperties
+    public class FakeClassNonPublicProperties
     {
         public string PropSetPrivate { get; private set; }
 
@@ -9,7 +9,9 @@
         protected string PropProtected { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0044:Add readonly modifier", Justification = "<Pending>")]
+#pragma warning disable CS0649
         private string _privateField;
+#pragma warning restore CS0649
 
         protected string ProtectedField;
 
