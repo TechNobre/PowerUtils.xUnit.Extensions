@@ -172,7 +172,7 @@ var obj2 = ObjectFactory.Create<TestObject>("My name", 50);
 
 
 
-## Contribution
+## :warning: Warning
 The methods `SetPrivateProperty`, `SetPrivateField`, `InvokePrivateMethod`, `InvokePrivateMethodAsync` will be removed in 2021/05/31.
 
 

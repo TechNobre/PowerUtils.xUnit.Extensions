@@ -4,8 +4,10 @@
     <!-- Assembly and projecto details -->
     <!-- https://docs.microsoft.com/en-us/dotnet/standard/frameworks -->
     <TargetFrameworks>net6.0;net5.0;netstandard2.0;netstandard2.1;net462;net48;netcoreapp3.1</TargetFrameworks>
+
     <RootNamespace>PowerUtils.xUnit.Extensions</RootNamespace>
     <AssemblyName>PowerUtils.xUnit.Extensions</AssemblyName>
+
 
     <!-- Package details -->
     <PackageId>PowerUtils.xUnit.Extensions</PackageId>
@@ -28,7 +30,7 @@
       - Discontinued the method `PrivatePropertyExtensions.InvokePrivateMethod`. New method `InvokeNonPublicMethod`;
       - Discontinued the method `PrivatePropertyExtensions.InvokePrivateMethodAsync`. New method `InvokeNonPublicMethodAsync`;
     </PackageReleaseNotes>
-    <Summary>Helpers, extensions and utilities for manipulating</Summary>
+    <Summary>Helpers, extensions and utilities for tests with xUnit</Summary>
     <PackageTags>PowerUtils;Utils;Helpers;Tests;xUnit;Extension;Extensions</PackageTags>
     <RepositoryUrl>https://github.com/TechNobre/PowerUtils.xUnit.Extensions</RepositoryUrl>
     <PackageProjectUrl>https://github.com/TechNobre/PowerUtils.xUnit.Extensions</PackageProjectUrl>
