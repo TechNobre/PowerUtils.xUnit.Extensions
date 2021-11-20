@@ -12,7 +12,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         public void PrivateSetProperty_NullObject_ReturnsException()
         {
             // Arrange
-            string value = "Fake";
+            var value = "Fake";
             FakeClassPrivateProperties obj = null;
 
 
@@ -26,13 +26,12 @@ namespace PowerUtils.xUnit.Extensions.Tests
                 .WithMessage("Value cannot be null. (Parameter 'source')");
         }
 
-
         [Fact(DisplayName = "Set a public property with private set")]
         [Trait("Category", "Set private properties")]
         public void PrivateProperty_PrivateSet()
         {
             // Arrange
-            string value = "Fake";
+            var value = "Fake";
             var obj = new FakeClassPrivateProperties();
 
 
@@ -50,13 +49,13 @@ namespace PowerUtils.xUnit.Extensions.Tests
         public void PrivateProperty_ExistingProperty_SetValue()
         {
             // Arrange
-            string value = "Fake";
+            var value = "Fake";
             var obj = new FakeClassPrivateProperties();
 
 
             // Act
             obj.SetPrivateProperty("_propPrivate", value);
-            string act = obj.GetValueOf_propPrivate();
+            var act = obj.GetValueOf_propPrivate();
 
 
             // Assert
@@ -69,7 +68,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         public void PrivateProperty_UnexistingProperty_ReturnsException()
         {
             // Arrange
-            string value = "Fake";
+            var value = "Fake";
             var obj = new FakeClassPrivateProperties();
 
 
@@ -88,7 +87,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         public void PrivateProperty_OnlyPrivateSet_ReturnsException()
         {
             // Arrange
-            string value = "Fake";
+            var value = "Fake";
             var obj = new FakeClassPrivateProperties();
 
 
@@ -107,7 +106,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         public void PrivateProperty_NullObject_ReturnsException()
         {
             // Arrange
-            string value = "Fake";
+            var value = "Fake";
             FakeClassPrivateProperties obj = null;
 
 
@@ -126,7 +125,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         public void PrivateField_NullObject_ReturnsException()
         {
             // Arrange
-            string value = "Fake";
+            var value = "Fake";
             FakeClassPrivateProperties obj = null;
 
 
@@ -145,7 +144,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         public void PrivateField_UnexistingField_ReturnsException()
         {
             // Arrange
-            string value = "Fake";
+            var value = "Fake";
             var obj = new FakeClassPrivateProperties();
 
 
@@ -164,13 +163,13 @@ namespace PowerUtils.xUnit.Extensions.Tests
         public void PrivateField_ExistingValue_SetValue()
         {
             // Arrange
-            string value = "Fake";
+            var value = "Fake";
             var obj = new FakeClassPrivateProperties();
 
 
             // Act
             obj.SetPrivateField("_privateField", value);
-            string act = obj.GetValueOf_privateField();
+            var act = obj.GetValueOf_privateField();
 
 
             // Assert
@@ -183,7 +182,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         public void PrivateProperty_SetPrivateField_ReturnsException()
         {
             // Arrange
-            string value = "Fake";
+            var value = "Fake";
             var obj = new FakeClassPrivateProperties();
 
 
@@ -195,6 +194,54 @@ namespace PowerUtils.xUnit.Extensions.Tests
             act.Should()
                 .Throw<FieldNotFoundException>()
                 .WithMessage("'_propPrivate' not found");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        [Fact(DisplayName = "Set a protected property with private set")]
+        [Trait("Category", "Set protected properties")]
+        public void ProtectedProperty_PrivateSet()
+        {
+            // Arrange
+            var value = "Fake";
+            var obj = new FakeClassPrivateProperties();
+
+
+            // Act
+            obj.SetPrivateProperty("PropProtected", value);
+
+
+            // Assert
+            obj.GetValueOfPropProtected().Should()
+                .Be(value);
+        }
+
+        [Fact(DisplayName = "Set a protected field")]
+        [Trait("Category", "Set protected properties")]
+        public void ProtectedField_SetValue()
+        {
+            // Arrange
+            var value = "Fake";
+            var obj = new FakeClassPrivateProperties();
+
+
+            // Act
+            obj.SetPrivateField("ProtectedField", value);
+
+
+            // Assert
+            obj.GetValueOfProtectedField().Should()
+                .Be(value);
         }
     }
 }

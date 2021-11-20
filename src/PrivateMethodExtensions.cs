@@ -1,4 +1,5 @@
 ﻿using PowerUtils.xUnit.Extensions.Exceptions;
+using System;
 using System.Reflection;
 using System.Threading.Tasks;
 
@@ -15,6 +16,7 @@ namespace PowerUtils.xUnit.Extensions
         /// <param name="parameters">Petermeters to send to private method</param>
         /// <returns>Value returned from method</returns>
         /// <exception cref="MethodNotFoundException">When the <paramref name="methodName">methodName</paramref> not found</exception>
+        [Obsolete("This method is deprecated. It will be removed on 2022/05/31. Use the new method 'InvokeNonPublicMethod'")]
         public static TResult InvokePrivateMethod<TResult>(this object obj, string methodName, params object[] parameters)
         {
             var objType = obj.GetType();
@@ -43,6 +45,7 @@ namespace PowerUtils.xUnit.Extensions
         /// <param name="methodName">Name of the private method you want to call</param>
         /// <param name="parameters">Petermeters to send to private method</param>
         /// <exception cref="MethodNotFoundException">When the <paramref name="methodName">methodName</paramref> not found</exception>
+        [Obsolete("This method is deprecated. It will be removed on 2022/05/31. Use the new method 'InvokeNonPublicMethod'")]
         public static void InvokePrivateMethod(this object obj, string methodName, params object[] parameters)
         {
             var objType = obj.GetType();
@@ -73,6 +76,7 @@ namespace PowerUtils.xUnit.Extensions
         /// <returns>Value returned from method</returns>
         /// <exception cref="MethodNotFoundException">When the <paramref name="methodName">methodName</paramref> not found</exception>
         /// <exception cref="CallMethodException">When it is not possible to call the method <paramref name="methodName">methodName</paramref></exception>
+        [Obsolete("This method is deprecated. It will be removed on 2022/05/31. Use the new method 'InvokeNonPublicMethodAsync'")]
         public static async Task<TResult> InvokePrivateMethodAsync<TResult>(this object obj, string methodName, params object[] parameters)
         {
             var objType = obj.GetType();
@@ -107,6 +111,7 @@ namespace PowerUtils.xUnit.Extensions
         /// <param name="parameters">Petermeters to send to private method</param>
         /// <exception cref="MethodNotFoundException">When the <paramref name="methodName">methodName</paramref> not found</exception>
         /// <exception cref="CallMethodException">When it is not possible to call the method <paramref name="methodName">methodName</paramref></exception>
+        [Obsolete("This method is deprecated. It will be removed on 2022/05/31. Use the new method 'InvokeNonPublicMethodAsync'")]
         public static async Task InvokePrivateMethodAsync(this object obj, string methodName, params object[] parameters)
         {
             var objType = obj.GetType();

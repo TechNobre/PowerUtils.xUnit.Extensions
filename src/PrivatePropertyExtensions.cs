@@ -14,11 +14,8 @@ namespace PowerUtils.xUnit.Extensions
         /// <param name="property">Target property</param>
         /// <param name="newValue">Value for property</param>
         /// <exception cref="ArgumentNullException">When the <paramref name="source">source</paramref> is null</exception>
-        public static void SetPrivateProperty<TSource, TProperty>(
-            this TSource source,
-            Expression<Func<TSource, TProperty>> property,
-            TProperty newValue
-        )
+        [Obsolete("This method is deprecated. It will be removed on 2022/05/31. Use the new method 'SetNonPublicProperty'")]
+        public static void SetPrivateProperty<TSource, TProperty>(this TSource source, Expression<Func<TSource, TProperty>> property, TProperty newValue)
         {
             // https://softwareengineering.stackexchange.com/questions/304635/stubbing-properties-with-private-setters-for-tests
 
@@ -39,6 +36,7 @@ namespace PowerUtils.xUnit.Extensions
         /// <param name="newValue">Value for property</param>
         /// <exception cref="ArgumentNullException">When the <paramref name="source">source</paramref> is null</exception>
         /// <exception cref="PropertyNotFoundException">When the <paramref name="propertyName">propertyName</paramref> not found</exception>
+        [Obsolete("This method is deprecated. It will be removed on 2022/05/31. Use the new method 'SetNonPublicProperty'")]
         public static void SetPrivateProperty<TSource, TProperty>(this TSource source, string propertyName, TProperty newValue)
         {
             // https://stackoverflow.com/questions/1565734/is-it-possible-to-set-private-property-via-reflection
@@ -67,6 +65,7 @@ namespace PowerUtils.xUnit.Extensions
         /// <param name="newValue">Value for field</param>
         /// <exception cref="ArgumentNullException">When the <paramref name="source">source</paramref> is null</exception>
         /// <exception cref="FieldNotFoundException">When the <paramref name="fieldName">propertyName</paramref> not found</exception>
+        [Obsolete("This method is deprecated. It will be removed on 2022/05/31. Use the new method 'SetNonPublicField'")]
         public static void SetPrivateField<TSource, TField>(this TSource source, string fieldName, TField newValue)
         {
             if(source == null)

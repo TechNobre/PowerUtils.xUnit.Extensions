@@ -323,5 +323,22 @@ namespace PowerUtils.xUnit.Extensions.Tests
             act.Message.Should()
                 .Be("It was not possible to call the method '_method4_1'");
         }
+
+        [Fact(DisplayName = "Call of a method only with returns a value")]
+        [Trait("Category", "Call protected methods")]
+        public void ProtectedMethod_WithReturn_ReturnsValue()
+        {
+            // Arrange
+            var obj = new FakeClassPrivateMethods();
+
+
+            // Act
+            int act = obj.InvokePrivateMethod<int>("Method7_1");
+
+
+            // Assert
+            act.Should()
+                .Be(102);
+        }
     }
 }

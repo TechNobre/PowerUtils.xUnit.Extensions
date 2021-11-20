@@ -189,25 +189,30 @@ var obj2 = ObjectFactory.Create<TestObject>("My name", 50);
 ## Release Notes
 
 
-### v2.0.0 - 2021/08/28
-#### Enhancements
+### v2.0.0 - 2021/11/19
+#### Updates
 - Added support to .NET 6
 
+#### Breaking Changes
+- Discontinued the method `PrivatePropertyExtensions.SetPrivateProperty`;
+- Discontinued the method `PrivatePropertyExtensions.SetPrivateField`;
+- Discontinued the method `PrivatePropertyExtensions.InvokePrivateMethod`;
+- Discontinued the method `PrivatePropertyExtensions.InvokePrivateMethodAsync`;
 
 
 ### v1.3.0 - 2021/08/28
 
 #### New Features
-- Added new exception `ConstructorNotFoundException`
-- Added new factory to create objects by non public constructor
+- Added new exception `ConstructorNotFoundException`;
+- Added new factory to create objects by non public constructor;
 
 
 
 ### v1.2.0 - 2021/08/06
 
 #### New Features
-- Added new exceptions `PropertyNotFoundException` and `FieldNotFoundException`
-- Added new extensions to set private properties and fields
+- Added new exceptions `PropertyNotFoundException` and `FieldNotFoundException`;
+- Added new extensions to set private properties and fields;
 
 
 
