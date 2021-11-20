@@ -11,7 +11,7 @@ Utils, helpers and extensions to create tests with xUnti
 ## Support to
 - .NET 2.0 or more
 - .NET Framework 4.6.2 or more
-- .NET Standard 2.0 or more
+- .NET Standard 2.1 or more
 
 
 
@@ -169,6 +169,12 @@ public class TestObject
 var obj1 = ObjectFactory.Create<TestObject>();
 var obj2 = ObjectFactory.Create<TestObject>("My name", 50);
 ```
+
+
+
+## Contribution
+The methods `SetPrivateProperty`, `SetPrivateField`, `InvokePrivateMethod`, `InvokePrivateMethodAsync` will be removed in 2021/05/31.
+
 
 
 

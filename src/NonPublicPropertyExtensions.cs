@@ -19,7 +19,7 @@ namespace PowerUtils.xUnit.Extensions
             // https://softwareengineering.stackexchange.com/questions/304635/stubbing-properties-with-private-setters-for-tests
             if(source == null)
             {
-                throw new ArgumentNullException("source");
+                throw new ArgumentNullException(nameof(source));
             }
 
             var propertyInfo = (PropertyInfo)((MemberExpression)property.Body).Member;
@@ -40,7 +40,7 @@ namespace PowerUtils.xUnit.Extensions
 
             if(source == null)
             {
-                throw new ArgumentNullException("source");
+                throw new ArgumentNullException(nameof(source));
             }
 
             var propertyInfo = source.GetType()
@@ -66,7 +66,7 @@ namespace PowerUtils.xUnit.Extensions
         {
             if(source == null)
             {
-                throw new ArgumentNullException("source");
+                throw new ArgumentNullException(nameof(source));
             }
 
             var fieldInfo = source.GetType()
