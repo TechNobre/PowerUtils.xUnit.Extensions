@@ -5,11 +5,10 @@ using System;
 using Xunit;
 namespace PowerUtils.xUnit.Extensions.Tests
 {
-    public class PrivateMethodTests
+    public class NonPublicMethodTests
     {
         [Fact(DisplayName = "Call of a method with parameters and returns a value")]
         [Trait("Category", "Call private methods")]
-        [Obsolete]
         public void PrivateMethod_WithReturnAndParameters_ReturnsValue()
         {
             // Arrange
@@ -18,7 +17,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
 
             // Act
-            int act = obj.InvokePrivateMethod<int>("_method1_1", input);
+            int act = obj.InvokeNonPublicMethod<int>("_method1_1", input);
 
 
             // Assert
@@ -28,7 +27,6 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
         [Fact(DisplayName = "Call of a method with parameters and return an exception")]
         [Trait("Category", "Call private methods")]
-        [Obsolete]
         public void PrivateMethod_WithReturnAndParameters_ReturnsException()
         {
             // Arrange
@@ -37,7 +35,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
 
             // Act
-            Action act = () => obj.InvokePrivateMethod<int>("_method1_2", input);
+            Action act = () => obj.InvokeNonPublicMethod<int>("_method1_2", input);
 
 
             // Assert
@@ -48,7 +46,6 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
         [Fact(DisplayName = "Call of a method only with returns a value")]
         [Trait("Category", "Call private methods")]
-        [Obsolete]
         public void PrivateMethod_WithReturn_ReturnsValue()
         {
             // Arrange
@@ -56,7 +53,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
 
             // Act
-            int act = obj.InvokePrivateMethod<int>("_method2_1");
+            int act = obj.InvokeNonPublicMethod<int>("_method2_1");
 
 
             // Assert
@@ -66,7 +63,6 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
         [Fact(DisplayName = "Call of a method only with returns an exception")]
         [Trait("Category", "Call private methods")]
-        [Obsolete]
         public void PrivateMethod_WithReturn_ReturnsException()
         {
             // Arrange
@@ -74,7 +70,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
 
             // Act
-            Action act = () => obj.InvokePrivateMethod<int>("_method2_2");
+            Action act = () => obj.InvokeNonPublicMethod<int>("_method2_2");
 
 
             // Assert
@@ -85,7 +81,6 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
         [Fact(DisplayName = "Call of a method with parameters and without returns")]
         [Trait("Category", "Call private methods")]
-        [Obsolete]
         public void PrivateMethod_WithParameters_WithoutReturn()
         {
             // Arrange
@@ -94,12 +89,11 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
 
             // Act & Assert
-            obj.InvokePrivateMethod("_method3_1", input);
+            obj.InvokeNonPublicMethod("_method3_1", input);
         }
 
         [Fact(DisplayName = "Call of a method with parameters and return an exception")]
         [Trait("Category", "Call private methods")]
-        [Obsolete]
         public void PrivateMethod_WithParameters_ReturnsException()
         {
             // Arrange
@@ -108,7 +102,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
 
             // Act
-            Action act = () => obj.InvokePrivateMethod("_method3_2", input);
+            Action act = () => obj.InvokeNonPublicMethod("_method3_2", input);
 
 
             // Assert
@@ -119,20 +113,18 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
         [Fact(DisplayName = "Call of a method without parameters and without returns")]
         [Trait("Category", "Call private methods")]
-        [Obsolete]
-        public void PrivateMethod_WithoutParametersAndRetun()
+        public void PrivateMethod_WithoutParametersAndRetun_OnlyCall()
         {
             // Arrange
             var obj = new FakeClassNonPublicMethods();
 
 
             // Act & Assert
-            obj.InvokePrivateMethod("_method4_1");
+            obj.InvokeNonPublicMethod("_method4_1");
         }
 
         [Fact(DisplayName = "Call of a method without parameters and returns an exception")]
         [Trait("Category", "Call private methods")]
-        [Obsolete]
         public void PrivateMethod_WithoutParametersAndRetun_ReturnsException()
         {
             // Arrange
@@ -140,7 +132,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
 
             // Act
-            Action act = () => obj.InvokePrivateMethod("_method4_2");
+            Action act = () => obj.InvokeNonPublicMethod("_method4_2");
 
 
             // Assert
@@ -151,7 +143,6 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
         [Fact(DisplayName = "Try calling an unexisting method without parameters and without returns - Should return MethodNotFoundException")]
         [Trait("Category", "Call private methods")]
-        [Obsolete]
         public void PrivateMethod_UnexistingMethodWithoutParametersAndRetun_ReturnsMethodNotFoundException()
         {
             // Arrange
@@ -159,7 +150,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
 
             // Act
-            Action act = () => obj.InvokePrivateMethod("_method_unexisting_1");
+            Action act = () => obj.InvokeNonPublicMethod("_method_unexisting_1");
 
 
             // Assert
@@ -170,7 +161,6 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
         [Fact(DisplayName = "Try calling an unexisting method without returns - Should return MethodNotFoundException")]
         [Trait("Category", "Call private methods")]
-        [Obsolete]
         public void PrivateMethod_UnexistingMethodWitRetun_ReturnsMethodNotFoundException()
         {
             // Arrange
@@ -178,7 +168,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
 
             // Act
-            Action act = () => obj.InvokePrivateMethod<string>("_method_unexisting_1");
+            Action act = () => obj.InvokeNonPublicMethod<string>("_method_unexisting_1");
 
 
             // Assert
@@ -191,7 +181,6 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
         [Fact(DisplayName = "Call of a async method with parameters and returns a value")]
         [Trait("Category", "Call private methods")]
-        [Obsolete]
         public void PrivateAsyncMethod_WithReturnAndParameters_ReturnsValue()
         {
             // Arrange
@@ -201,8 +190,8 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
             // Act
             int act = obj
-                .InvokePrivateMethodAsync<int>("_method5_1Async", input)
-                .GetAwaiter().GetResult();
+                .InvokeNonPublicMethodAsync<int>("_method5_1Async", input)
+                .Result;
 
 
             // Assert
@@ -212,7 +201,6 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
         [Fact(DisplayName = "Call of a async method with parameters and return an exception")]
         [Trait("Category", "Call private methods")]
-        [Obsolete]
         public void PrivateAsyncMethod_WithReturnAndParameters_ReturnsException()
         {
             // Arrange
@@ -224,18 +212,12 @@ namespace PowerUtils.xUnit.Extensions.Tests
             Exception act = null;
             try
             {
-                int response = obj.InvokePrivateMethodAsync<int>("_method5_2Async", input)
-                    .GetAwaiter().GetResult();
+                _ = obj.InvokeNonPublicMethodAsync<int>("_method5_2Async", input).Result;
             }
             catch(AggregateException exception)
             {
                 act = exception.InnerExceptions[0];
             }
-            catch (ArgumentException exception)
-            {
-                act = exception;
-            }
-
 
             // Assert
             act.Should()
@@ -247,20 +229,18 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
         [Fact(DisplayName = "Call of a async method without parameters and without returns")]
         [Trait("Category", "Call private methods")]
-        [Obsolete]
-        public void PrivateAsyncMethod_WithoutParametersAndRetun()
+        public void PrivateAsyncMethod_WithoutParametersAndRetun_OnlyCall()
         {
             // Arrange
             var obj = new FakeClassNonPublicMethods();
 
 
             // Act & Assert
-            obj.InvokePrivateMethodAsync("_method6_1Async").Wait();
+            obj.InvokeNonPublicMethodAsync("_method6_1Async").Wait();
         }
 
         [Fact(DisplayName = "Call of a async method without parameters and returns an exception")]
         [Trait("Category", "Call private methods")]
-        [Obsolete]
         public void PrivateAsyncMethod_WithoutParametersAndRetun_ReturnsException()
         {
             // Arrange
@@ -271,7 +251,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
             Exception act = null;
             try
             {
-                obj.InvokePrivateMethodAsync("_method6_2Async").Wait();
+                obj.InvokeNonPublicMethodAsync("_method6_2Async").Wait();
             }
             catch(AggregateException exception)
             {
@@ -290,7 +270,6 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
         [Fact(DisplayName = "Try calling a method is not async with utils 'InvokePrivateMethodAsync' - Should returns 'CallMethodException'")]
         [Trait("Category", "Call private methods")]
-        [Obsolete]
         public void PrivateAsyncMethod_CallWithAsyncInvoke_ReturnsException1()
         {
             // Arrange
@@ -301,7 +280,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
             Exception act = null;
             try
             {
-                obj.InvokePrivateMethodAsync("_method4_1").Wait();
+                obj.InvokeNonPublicMethodAsync("_method4_1").Wait();
             }
             catch(AggregateException exception)
             {
@@ -319,7 +298,6 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
         [Fact(DisplayName = "Try calling a method is not async with utils 'InvokePrivateMethodAsync' - Should returns 'CallMethodException'")]
         [Trait("Category", "Call private methods")]
-        [Obsolete]
         public void PrivateAsyncMethod_CallWithAsyncInvoke_ReturnsException2()
         {
             // Arrange
@@ -330,11 +308,16 @@ namespace PowerUtils.xUnit.Extensions.Tests
             Exception act = null;
             try
             {
-                bool response = obj.InvokePrivateMethodAsync<bool>("_method4_1").Result;
+                bool response = obj.InvokeNonPublicMethodAsync<bool>("_method4_1")
+                    .GetAwaiter().GetResult();
             }
             catch(AggregateException exception)
             {
                 act = exception.InnerExceptions[0];
+            }
+            catch (CallMethodException exception)
+            {
+                act = exception;
             }
 
 
@@ -348,7 +331,6 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
         [Fact(DisplayName = "Call of a method only with returns a value")]
         [Trait("Category", "Call protected methods")]
-        [Obsolete]
         public void ProtectedMethod_WithReturn_ReturnsValue()
         {
             // Arrange
@@ -356,7 +338,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
 
             // Act
-            int act = obj.InvokePrivateMethod<int>("Method7_1");
+            int act = obj.InvokeNonPublicMethod<int>("Method7_1");
 
 
             // Assert

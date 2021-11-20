@@ -2,7 +2,7 @@
 
 namespace PowerUtils.xUnit.Extensions.Tests.Fakes
 {
-    public class FakeClassPrivateMethods
+    public class FakeClassNonPublicMethods
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "<Pending>")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "<Pending>")]
@@ -84,11 +84,17 @@ namespace PowerUtils.xUnit.Extensions.Tests.Fakes
         {
             return Task.CompletedTask;
         }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "<Pending>")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "<Pending>")]
         private Task _method6_2Async()
         {
             throw new System.ArgumentException("Message exception 6_2");
+        }
+
+        protected int Method7_1()
+        {
+            return 102;
         }
     }
 }

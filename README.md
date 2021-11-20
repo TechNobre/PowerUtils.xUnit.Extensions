@@ -11,7 +11,7 @@ Utils, helpers and extensions to create tests with xUnti
 ## Support to
 - .NET 2.0 or more
 - .NET Framework 4.6.2 or more
-- .NET Standard 2.0 or more
+- .NET Standard 2.1 or more
 
 
 
@@ -20,8 +20,8 @@ Utils, helpers and extensions to create tests with xUnti
 
 - [Installation](#Installation)
 - [Extensions](#Extensions)
-  - [InvokePrivateMethod](#object.InvokePrivateMethod)
-  - [SetPrivateProperty and SetPrivateField](#object.SetPrivateProperty)
+  - [InvokeNonPublicMethod](#object.InvokeNonPublicMethod)
+  - [SetNonPublicProperty and SetNonPublicField](#object.SetNonPublicProperty)
 - [Helpers](#Helpers)
   - [Sort tests by priority](#SortTestsByPriority)
 - [Factories](#Factories)
@@ -51,8 +51,8 @@ dotnet add package PowerUtils.xUnit.Extensions
 
 ### Extensions <a name="Extensions"></a>
 
-#### object.InvokePrivateMethod(); <a name="object.InvokePrivateMethod"></a>
-Extension to invoke private methods
+#### object.InvokeNonPublicMethod(); <a name="object.InvokeNonPublicMethod"></a>
+Extension to invoke non-public methods
 
 ```csharp
 public class SampleClass
@@ -88,20 +88,20 @@ public class SampleClass
 ```csharp
 var sampleClass = new SampleClass();
 
-var result1 = sampleClass.InvokePrivateMethod<bool>("_methodName1", 1);
-var result2 = sampleClass.InvokePrivateMethod<bool>("_methodName2");
+var result1 = sampleClass.InvokeNonPublicMethod<bool>("_methodName1", 1);
+var result2 = sampleClass.InvokeNonPublicMethod<bool>("_methodName2");
 
-sampleClass.InvokePrivateMethod("_methodName3", 532);
-sampleClass.InvokePrivateMethod("_methodName4");
+sampleClass.InvokeNonPublicMethod("_methodName3", 532);
+sampleClass.InvokeNonPublicMethod("_methodName4");
 
-var result3 = await sampleClass.InvokePrivateMethodAsync<bool>("_methodName5Async", 1);
-await sampleClass.InvokePrivateMethodAsync("_methodName6Async");
+var result3 = await sampleClass.InvokeNonPublicMethodAsync<bool>("_methodName5Async", 1);
+await sampleClass.InvokeNonPublicMethodAsync("_methodName6Async");
 ```
 
 
 
-#### object.SetPrivateProperty(); and object.SetPrivateField() <a name="object.SetPrivateProperty"></a>
-Extensions to set private properties and fields
+#### object.SetNonPublicProperty(); and object.SetNonPublicField() <a name="object.SetNonPublicProperty"></a>
+Extensions to set non-public properties and fields
 
 ```csharp
 public class SampleClass
@@ -115,9 +115,9 @@ public class SampleClass
 ```csharp
 var sampleClass = new SampleClass();
 
-obj.SetPrivateProperty(p => p.PropSetPrivate, "Value");
-obj.SetPrivateProperty("_propPrivate", "Value");
-obj.SetPrivateField("_privateField", "Value");
+obj.SetNonPublicProperty(p => p.PropSetPrivate, "Value");
+obj.SetNonPublicProperty("_propPrivate", "Value");
+obj.SetNonPublicField("_privateField", "Value");
 ```
 
 
@@ -173,6 +173,12 @@ var obj2 = ObjectFactory.Create<TestObject>("My name", 50);
 
 
 ## Contribution
+The methods `SetPrivateProperty`, `SetPrivateField`, `InvokePrivateMethod`, `InvokePrivateMethodAsync` will be removed in 2021/05/31.
+
+
+
+
+## Contribution
 
 *Help me to help others*
 
@@ -189,25 +195,37 @@ var obj2 = ObjectFactory.Create<TestObject>("My name", 50);
 ## Release Notes
 
 
+### v2.0.0 - 2021/11/20
+#### Updates
+- Added support to .NET 6
+
+#### Breaking Changes
+- Discontinued the method `PrivatePropertyExtensions.SetPrivateProperty`. New method `SetNonPublicProperty`;
+- Discontinued the method `PrivatePropertyExtensions.SetPrivateField`. New method `SetNonPublicField`;
+- Discontinued the method `PrivatePropertyExtensions.InvokePrivateMethod`. New method `InvokeNonPublicMethod`;
+- Discontinued the method `PrivatePropertyExtensions.InvokePrivateMethodAsync`. New method `InvokeNonPublicMethodAsync`;
+
+
+
 ### v1.3.0 - 2021/08/28
 
-#### New features
-- Add new exception `ConstructorNotFoundException`
-- Added new factory to create objects by non public constructor
+#### New Features
+- Added new exception `ConstructorNotFoundException`;
+- Added new factory to create objects by non public constructor;
 
 
 
 ### v1.2.0 - 2021/08/06
 
-#### New features
-- Add new exceptions `PropertyNotFoundException` and `FieldNotFoundException`
-- Added new extensions to set private properties and fields
+#### New Features
+- Added new exceptions `PropertyNotFoundException` and `FieldNotFoundException`;
+- Added new extensions to set private properties and fields;
 
 
 
 ### v1.1.0 - 2021/07/24
 
-#### New features
+#### New Features
 - Added async private method invocations
   - `obj.InvokePrivateMethodAsync<TResult>();`
   - `obj.InvokePrivateMethodAsync();`
