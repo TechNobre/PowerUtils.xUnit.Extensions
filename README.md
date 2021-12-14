@@ -115,9 +115,9 @@ public class SampleClass
 ```csharp
 var sampleClass = new SampleClass();
 
-obj.SetNonPublicProperty(p => p.PropSetPrivate, "Value");
-obj.SetNonPublicProperty("_propPrivate", "Value");
-obj.SetNonPublicField("_privateField", "Value");
+sampleClass.SetNonPublicProperty(p => p.PropSetPrivate, "Value");
+sampleClass.SetNonPublicProperty("_propPrivate", "Value");
+sampleClass.SetNonPublicField("_privateField", "Value");
 ```
 
 
