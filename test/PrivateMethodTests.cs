@@ -357,7 +357,7 @@ public class PrivateMethodTests
 
 
         // Act
-        int act = obj.InvokePrivateMethod<int>("Method7_1");
+        var act = obj.InvokePrivateMethod<int>("Method7_1");
 
 
         // Assert

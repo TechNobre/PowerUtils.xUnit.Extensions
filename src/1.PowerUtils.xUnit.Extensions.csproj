@@ -13,7 +13,7 @@
     <PackageId>PowerUtils.xUnit.Extensions</PackageId>
     <title>PowerUtils.xUnit.Extensions</title>
     <Product>PowerUtils.xUnit.Extensions</Product>
-    <Version>2.0.0</Version>
+    <Version>2.1.0</Version>
 
     <Authors>Nelson Nobre</Authors>
     <Company>TechNobre</Company>
@@ -24,11 +24,7 @@
 
     <Description>Helpers, extensions and utilities for tests with xUnit</Description>
     <PackageReleaseNotes>
-      - Added support to .NET 6
-      - Discontinued the method `PrivatePropertyExtensions.SetPrivateProperty`. New method `SetNonPublicProperty`;
-      - Discontinued the method `PrivatePropertyExtensions.SetPrivateField`. New method `SetNonPublicField`;
-      - Discontinued the method `PrivatePropertyExtensions.InvokePrivateMethod`. New method `InvokeNonPublicMethod`;
-      - Discontinued the method `PrivatePropertyExtensions.InvokePrivateMethodAsync`. New method `InvokeNonPublicMethodAsync`;
+      - Added new helper to invoke non public methods `ObjectInvoker.Invoke`;
     </PackageReleaseNotes>
     <Summary>Helpers, extensions and utilities for tests with xUnit</Summary>
     <PackageTags>PowerUtils;Utils;Helpers;Tests;xUnit;Extension;Extensions</PackageTags>
