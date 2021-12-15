@@ -13,11 +13,11 @@ namespace PowerUtils.xUnit.Extensions.Tests
         {
             // Arrange
             var obj = new FakeClassNonPublicMethods();
-            int input = 32;
+            var input = 32;
 
 
             // Act
-            int act = obj.InvokeNonPublicMethod<int>("_method1_1", input);
+            var act = obj.InvokeNonPublicMethod<int>("_method1_1", input);
 
 
             // Assert
@@ -31,7 +31,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         {
             // Arrange
             var obj = new FakeClassNonPublicMethods();
-            int input = 32;
+            var input = 32;
 
 
             // Act
@@ -53,7 +53,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
 
             // Act
-            int act = obj.InvokeNonPublicMethod<int>("_method2_1");
+            var act = obj.InvokeNonPublicMethod<int>("_method2_1");
 
 
             // Assert
@@ -85,7 +85,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         {
             // Arrange
             var obj = new FakeClassNonPublicMethods();
-            int input = 32;
+            var input = 32;
 
 
             // Act & Assert
@@ -98,7 +98,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         {
             // Arrange
             var obj = new FakeClassNonPublicMethods();
-            int input = 32;
+            var input = 32;
 
 
             // Act
@@ -185,11 +185,11 @@ namespace PowerUtils.xUnit.Extensions.Tests
         {
             // Arrange
             var obj = new FakeClassNonPublicMethods();
-            int input = 10;
+            var input = 10;
 
 
             // Act
-            int act = obj
+            var act = obj
                 .InvokeNonPublicMethodAsync<int>("_method5_1Async", input)
                 .Result;
 
@@ -205,7 +205,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         {
             // Arrange
             var obj = new FakeClassNonPublicMethods();
-            int input = 32;
+            var input = 32;
 
 
             // Act
@@ -308,7 +308,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
             Exception act = null;
             try
             {
-                bool response = obj.InvokeNonPublicMethodAsync<bool>("_method4_1")
+                var response = obj.InvokeNonPublicMethodAsync<bool>("_method4_1")
                     .GetAwaiter().GetResult();
             }
             catch(AggregateException exception)
@@ -338,7 +338,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
 
             // Act
-            int act = obj.InvokeNonPublicMethod<int>("Method7_1");
+            var act = obj.InvokeNonPublicMethod<int>("Method7_1");
 
 
             // Assert
