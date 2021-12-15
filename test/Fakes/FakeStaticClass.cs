@@ -48,6 +48,7 @@ public static class FakeStaticClass
         return value * 2;
     }
 
+#pragma warning disable IDE0060 // Remove unused parameter
     private async static Task<int> _method5_2Async(int value)
 #pragma warning restore IDE0060 // Remove unused parameter
     {
