@@ -24,6 +24,7 @@ Utils, helpers and extensions to create tests with xUnti
   - [SetNonPublicProperty and SetNonPublicField](#object.SetNonPublicProperty)
 - [Helpers](#Helpers)
   - [Sort tests by priority](#SortTestsByPriority)
+  - [InvokeStaticNonPublicMethod](#InvokeStaticNonPublicMethod)
 - [Factories](#Factories)
   - [ObjectFactory](#Factories-ObjectFactory)
 
@@ -115,9 +116,9 @@ public class SampleClass
 ```csharp
 var sampleClass = new SampleClass();
 
-obj.SetNonPublicProperty(p => p.PropSetPrivate, "Value");
-obj.SetNonPublicProperty("_propPrivate", "Value");
-obj.SetNonPublicField("_privateField", "Value");
+sampleClass.SetNonPublicProperty(p => p.PropSetPrivate, "Value");
+sampleClass.SetNonPublicProperty("_propPrivate", "Value");
+sampleClass.SetNonPublicField("_privateField", "Value");
 ```
 
 
@@ -139,6 +140,50 @@ public class Tests
     {
     }
 }
+```
+
+#### InvokeStaticNonPublicMethod <a name="InvokeStaticNonPublicMethod"></a>
+
+```csharp
+public static class SampleClass
+{
+    private static bool _methodName1(int value)
+    {
+        return false;
+    }
+
+    private static bool _methodName2()
+    {
+        return true;
+    }
+
+    private static void _methodName3(int value)
+    {
+    }
+
+    private static void _methodName4()
+    {
+    }
+
+    private static Task<bool> _methodName5Async()
+    {
+    }
+
+    private static Task _methodName6Async()
+    {
+    }
+}
+```
+
+```csharp
+var result1 = ObjectInvoker.Invoke<bool>(typeof(SampleClass), "_methodName1", 1);
+var result2 = ObjectInvoker.Invoke<bool>(typeof(SampleClass), "_methodName2");
+
+ObjectInvoker.Invoke(typeof(SampleClass), "_methodName3", 532);
+ObjectInvoker.Invoke(typeof(SampleClass), "_methodName4");
+
+var result3 = await ObjectInvoker.InvokeAsync<bool>(typeof(SampleClass), "_methodName5Async", 1);
+await ObjectInvoker.InvokeAsync(typeof(SampleClass), "_methodName6Async");
 ```
 
 
@@ -172,7 +217,7 @@ var obj2 = ObjectFactory.Create<TestObject>("My name", 50);
 
 
 
-## Contribution
+## :warning: Warning
 The methods `SetPrivateProperty`, `SetPrivateField`, `InvokePrivateMethod`, `InvokePrivateMethodAsync` will be removed in 2021/05/31.
 
 
@@ -193,6 +238,16 @@ The methods `SetPrivateProperty`, `SetPrivateField`, `InvokePrivateMethod`, `Inv
 
 
 ## Release Notes
+
+
+### v2.1.0 - 2021/12/15
+
+#### New Features
+- Added new helper to invoke non public methods `ObjectInvoker.Invoke`;
+
+#### Enhancements
+- Improved the methods `InvokeNonPublicMethod` and `InvokeNonPublicMethodAsync` to return better exceptions;
+
 
 
 ### v2.0.0 - 2021/11/20

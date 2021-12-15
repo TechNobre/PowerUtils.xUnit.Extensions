@@ -5,79 +5,77 @@ using System.Threading.Tasks;
 
 namespace PowerUtils.xUnit.Extensions
 {
-    public static class NonPublicMethodExtensions
+    public class ObjectInvoker
     {
         /// <summary>
-        /// Invoke non-public methods
+        /// Invoke static non-public methods
         /// </summary>
         /// <typeparam name="TResult">Returns type</typeparam>
-        /// <param name="obj">Object containing the method/param>
+        /// <param name="obj">Object containing the method</typeparam>
         /// <param name="methodName">Name of the non-public method you want to call</param>
         /// <param name="parameters">Petermeters to send to non-public method</param>
         /// <returns>Value returned from method</returns>
         /// <exception cref="MethodNotFoundException">When the <paramref name="methodName">methodName</paramref> not found</exception>
         /// <exception cref="ArgumentNullException">When the <paramref name="obj">obj</paramref> is null</exception>
-        public static TResult InvokeNonPublicMethod<TResult>(this object obj, string methodName, params object[] parameters)
+        public static TResult Invoke<TResult>(Type obj, string methodName, params object[] parameters)
         {
-            if (obj == null)
+            if(obj == null)
             {
                 throw new ArgumentNullException(nameof(obj), $"The '{nameof(obj)}' cannot be null");
             }
 
-            var objType = obj.GetType();
-            var methodInfo = objType.GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Instance);
+            var methodInfo = obj.GetMethod(methodName, BindingFlags.Static | BindingFlags.NonPublic);
 
-            if(methodInfo == null)
+            if (methodInfo == null)
             {
                 throw new MethodNotFoundException(methodName);
             }
 
             try
             {
-                object result = methodInfo.Invoke(obj, parameters);
+                object result = methodInfo.Invoke(null, parameters);
                 return (TResult)result;
             }
-            catch(TargetInvocationException exception)
+            catch (TargetInvocationException exception)
             {
                 throw exception?.InnerException ?? exception;
             }
         }
 
         /// <summary>
-        /// Invoke non-public methods
+        /// Invoke static non-public methods
         /// </summary>
         /// <param name="obj">Object containing the method/param>
         /// <param name="methodName">Name of the non-public method you want to call</param>
         /// <param name="parameters">Petermeters to send to non-public method</param>
         /// <exception cref="MethodNotFoundException">When the <paramref name="methodName">methodName</paramref> not found</exception>
         /// <exception cref="ArgumentNullException">When the <paramref name="obj">obj</paramref> is null</exception>
-        public static void InvokeNonPublicMethod(this object obj, string methodName, params object[] parameters)
+        public static void Invoke(Type obj, string methodName, params object[] parameters)
         {
             if (obj == null)
             {
                 throw new ArgumentNullException(nameof(obj), $"The '{nameof(obj)}' cannot be null");
             }
 
-            var objType = obj.GetType();
-            var methodInfo = objType.GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Instance);
+            var methodInfo = obj.GetMethod(methodName, BindingFlags.Static | BindingFlags.NonPublic);
 
-            if(methodInfo == null)
+            if (methodInfo == null)
             {
                 throw new MethodNotFoundException(methodName);
             }
 
             try
             {
-                methodInfo.Invoke(obj, parameters);
+                methodInfo.Invoke(null, parameters);
             }
-            catch(TargetInvocationException exception)
+            catch (TargetInvocationException exception)
             {
                 throw exception?.InnerException ?? exception;
             }
         }
 
         /// <summary>
-        /// Invoke asynchronously non-public methods
+        /// Invoke asynchronously static non-public methods
         /// </summary>
         /// <typeparam name="TResult">Returns type</typeparam>
         /// <param name="obj">Object containing the method/param>
@@ -87,17 +85,16 @@ namespace PowerUtils.xUnit.Extensions
         /// <exception cref="MethodNotFoundException">When the <paramref name="methodName">methodName</paramref> not found</exception>
         /// <exception cref="CallMethodException">When it is not possible to call the method <paramref name="methodName">methodName</paramref></exception>
         /// <exception cref="ArgumentNullException">When the <paramref name="obj">obj</paramref> is null</exception>
-        public static async Task<TResult> InvokeNonPublicMethodAsync<TResult>(this object obj, string methodName, params object[] parameters)
+        public static async Task<TResult> InvokeAsync<TResult>(Type obj, string methodName, params object[] parameters)
         {
             if (obj == null)
             {
                 throw new ArgumentNullException(nameof(obj), $"The '{nameof(obj)}' cannot be null");
             }
 
-            var objType = obj.GetType();
-            var methodInfo = objType.GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Instance);
+            var methodInfo = obj.GetMethod(methodName, BindingFlags.Static | BindingFlags.NonPublic);
 
-            if(methodInfo == null)
+            if (methodInfo == null)
             {
                 throw new MethodNotFoundException(methodName);
             }
@@ -105,21 +102,21 @@ namespace PowerUtils.xUnit.Extensions
             try
             {
                 var response = (Task<TResult>)methodInfo.Invoke(obj, parameters);
-                if(response == null)
+                if (response == null)
                 {
                     throw new CallMethodException(methodName);
                 }
 
                 return await response;
             }
-            catch(TargetInvocationException exception)
+            catch (TargetInvocationException exception)
             {
                 throw exception?.InnerException ?? exception;
             }
         }
 
         /// <summary>
-        /// Invoke asynchronously non-public methods
+        /// Invoke asynchronously static non-public methods
         /// </summary>
         /// <param name="obj">Object containing the method/param>
         /// <param name="methodName">Name of the non-public method you want to call</param>
@@ -127,17 +124,16 @@ namespace PowerUtils.xUnit.Extensions
         /// <exception cref="MethodNotFoundException">When the <paramref name="methodName">methodName</paramref> not found</exception>
         /// <exception cref="CallMethodException">When it is not possible to call the method <paramref name="methodName">methodName</paramref></exception>
         /// <exception cref="ArgumentNullException">When the <paramref name="obj">obj</paramref> is null</exception>
-        public static async Task InvokeNonPublicMethodAsync(this object obj, string methodName, params object[] parameters)
+        public static async Task InvokeAsync(Type obj, string methodName, params object[] parameters)
         {
             if (obj == null)
             {
                 throw new ArgumentNullException(nameof(obj), $"The '{nameof(obj)}' cannot be null");
             }
 
-            var objType = obj.GetType();
-            var methodInfo = objType.GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Instance);
+            var methodInfo = obj.GetMethod(methodName, BindingFlags.Static | BindingFlags.NonPublic);
 
-            if(methodInfo == null)
+            if (methodInfo == null)
             {
                 throw new MethodNotFoundException(methodName);
             }
@@ -145,13 +141,13 @@ namespace PowerUtils.xUnit.Extensions
             try
             {
                 var response = (Task)methodInfo.Invoke(obj, parameters);
-                if(response == null)
+                if (response == null)
                 {
                     throw new CallMethodException(methodName);
                 }
                 await response;
             }
-            catch(TargetInvocationException exception)
+            catch (TargetInvocationException exception)
             {
                 throw exception?.InnerException ?? exception;
             }
