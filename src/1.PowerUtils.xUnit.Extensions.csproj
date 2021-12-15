@@ -25,6 +25,7 @@
     <Description>Helpers, extensions and utilities for tests with xUnit</Description>
     <PackageReleaseNotes>
       - Added new helper to invoke non public methods `ObjectInvoker.Invoke`;
+      - Improved the methods `InvokeNonPublicMethod` and `InvokeNonPublicMethodAsync` to return better exceptions;
     </PackageReleaseNotes>
     <Summary>Helpers, extensions and utilities for tests with xUnit</Summary>
     <PackageTags>PowerUtils;Utils;Helpers;Tests;xUnit;Extension;Extensions</PackageTags>

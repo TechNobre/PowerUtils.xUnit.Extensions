@@ -245,6 +245,9 @@ The methods `SetPrivateProperty`, `SetPrivateField`, `InvokePrivateMethod`, `Inv
 #### New Features
 - Added new helper to invoke non public methods `ObjectInvoker.Invoke`;
 
+#### Enhancements
+- Improved the methods `InvokeNonPublicMethod` and `InvokeNonPublicMethodAsync` to return better exceptions;
+
 
 
 ### v2.0.0 - 2021/11/20

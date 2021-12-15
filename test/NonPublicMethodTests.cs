@@ -8,6 +8,46 @@ namespace PowerUtils.xUnit.Extensions.Tests;
 
 public class NonPublicMethodTests
 {
+
+
+    [Fact(DisplayName = "Call of a void method of the null type - Should return a 'ArgumentNullException'")]
+    [Trait("Category", "Call private methods")]
+    public void VoidPrivateMethod_NullType_Exception()
+    {
+        // Arrange
+        FakeClassNonPublicMethods obj = null;
+        var input = 32;
+
+
+        // Act
+        Action act = () => obj.InvokeNonPublicMethod("_method1_1", input);
+
+
+        // Assert
+        act.Should()
+            .Throw<ArgumentNullException>()
+            .WithMessage("The 'obj' cannot be null (Parameter 'obj')");
+    }
+
+    [Fact(DisplayName = "Call of a method of the null type - Should return a 'ArgumentNullException'")]
+    [Trait("Category", "Call private methods")]
+    public void PrivateMethod_NullType_Exception()
+    {
+        // Arrange
+        FakeClassNonPublicMethods obj = null;
+        var input = 32;
+
+
+        // Act
+        Action act = () => obj.InvokeNonPublicMethod<int>("_method1_1", input);
+
+
+        // Assert
+        act.Should()
+            .Throw<ArgumentNullException>()
+            .WithMessage("The 'obj' cannot be null (Parameter 'obj')");
+    }
+
     [Fact(DisplayName = "Call of a method with parameters and returns a value")]
     [Trait("Category", "Call private methods")]
     public void PrivateMethod_WithReturnAndParameters_ReturnsValue()

@@ -1,4 +1,5 @@
 ﻿using PowerUtils.xUnit.Extensions.Exceptions;
+using System;
 using System.Reflection;
 using System.Threading.Tasks;
 
@@ -15,8 +16,14 @@ namespace PowerUtils.xUnit.Extensions
         /// <param name="parameters">Petermeters to send to non-public method</param>
         /// <returns>Value returned from method</returns>
         /// <exception cref="MethodNotFoundException">When the <paramref name="methodName">methodName</paramref> not found</exception>
+        /// <exception cref="ArgumentNullException">When the <paramref name="obj">obj</paramref> is null</exception>
         public static TResult InvokeNonPublicMethod<TResult>(this object obj, string methodName, params object[] parameters)
         {
+            if (obj == null)
+            {
+                throw new ArgumentNullException(nameof(obj), $"The '{nameof(obj)}' cannot be null");
+            }
+
             var objType = obj.GetType();
             var methodInfo = objType.GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Instance);
 
@@ -43,8 +50,14 @@ namespace PowerUtils.xUnit.Extensions
         /// <param name="methodName">Name of the non-public method you want to call</param>
         /// <param name="parameters">Petermeters to send to non-public method</param>
         /// <exception cref="MethodNotFoundException">When the <paramref name="methodName">methodName</paramref> not found</exception>
+        /// <exception cref="ArgumentNullException">When the <paramref name="obj">obj</paramref> is null</exception>
         public static void InvokeNonPublicMethod(this object obj, string methodName, params object[] parameters)
         {
+            if (obj == null)
+            {
+                throw new ArgumentNullException(nameof(obj), $"The '{nameof(obj)}' cannot be null");
+            }
+
             var objType = obj.GetType();
             var methodInfo = objType.GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Instance);
 
@@ -73,8 +86,14 @@ namespace PowerUtils.xUnit.Extensions
         /// <returns>Value returned from method</returns>
         /// <exception cref="MethodNotFoundException">When the <paramref name="methodName">methodName</paramref> not found</exception>
         /// <exception cref="CallMethodException">When it is not possible to call the method <paramref name="methodName">methodName</paramref></exception>
+        /// <exception cref="ArgumentNullException">When the <paramref name="obj">obj</paramref> is null</exception>
         public static async Task<TResult> InvokeNonPublicMethodAsync<TResult>(this object obj, string methodName, params object[] parameters)
         {
+            if (obj == null)
+            {
+                throw new ArgumentNullException(nameof(obj), $"The '{nameof(obj)}' cannot be null");
+            }
+
             var objType = obj.GetType();
             var methodInfo = objType.GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Instance);
 
@@ -107,8 +126,14 @@ namespace PowerUtils.xUnit.Extensions
         /// <param name="parameters">Petermeters to send to non-public method</param>
         /// <exception cref="MethodNotFoundException">When the <paramref name="methodName">methodName</paramref> not found</exception>
         /// <exception cref="CallMethodException">When it is not possible to call the method <paramref name="methodName">methodName</paramref></exception>
+        /// <exception cref="ArgumentNullException">When the <paramref name="obj">obj</paramref> is null</exception>
         public static async Task InvokeNonPublicMethodAsync(this object obj, string methodName, params object[] parameters)
         {
+            if (obj == null)
+            {
+                throw new ArgumentNullException(nameof(obj), $"The '{nameof(obj)}' cannot be null");
+            }
+
             var objType = obj.GetType();
             var methodInfo = objType.GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Instance);
 
