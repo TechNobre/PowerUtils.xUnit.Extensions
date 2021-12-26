@@ -18,7 +18,7 @@ public class StaticNonPublicMethodTests
 
         // Act
         Action act = () => ObjectInvoker.
-            Invoke<int>(null, "_method1_1", input);
+            Invoke<int>(null, "_method11", input);
 
 
         // Assert
@@ -37,7 +37,7 @@ public class StaticNonPublicMethodTests
 
         // Act
         var act = ObjectInvoker.
-            Invoke<int>(typeof(FakeStaticClass), "_method1_1", input);
+            Invoke<int>(typeof(FakeStaticClass), "_method11", input);
 
 
         // Assert
@@ -54,13 +54,13 @@ public class StaticNonPublicMethodTests
 
 
         // Act
-        Action act = () => ObjectInvoker.Invoke<int>(typeof(FakeStaticClass), "_method1_2", input);
+        Action act = () => ObjectInvoker.Invoke<int>(typeof(FakeStaticClass), "_method12", input);
 
 
         // Assert
         act.Should()
             .Throw<ArgumentException>()
-            .WithMessage("Message exception 1_2");
+            .WithMessage("Message exception 12");
     }
 
     [Fact(DisplayName = "Call of a static method only with returns a value")]
@@ -68,7 +68,7 @@ public class StaticNonPublicMethodTests
     public void PrivateMethod_WithReturn_ReturnsValue()
     {
         // Arrange & Act
-        var act = ObjectInvoker.Invoke<int>(typeof(FakeStaticClass), "_method2_1");
+        var act = ObjectInvoker.Invoke<int>(typeof(FakeStaticClass), "_method21");
 
 
         // Assert
@@ -81,13 +81,13 @@ public class StaticNonPublicMethodTests
     public void PrivateMethod_WithReturn_Exception()
     {
         // Arrange && Act
-        Action act = () => ObjectInvoker.Invoke<int>(typeof(FakeStaticClass), "_method2_2");
+        Action act = () => ObjectInvoker.Invoke<int>(typeof(FakeStaticClass), "_method22");
 
 
         // Assert
         act.Should()
             .Throw<ArgumentException>()
-            .WithMessage("Message exception 2_2");
+            .WithMessage("Message exception 22");
     }
 
     [Fact(DisplayName = "Call of a static void method of the null type - Should return a 'ArgumentNullException'")]
@@ -100,7 +100,7 @@ public class StaticNonPublicMethodTests
 
         // Act
         Action act = () => ObjectInvoker.
-            Invoke(null, "_method1_1", input);
+            Invoke(null, "_method11", input);
 
 
         // Assert
@@ -118,7 +118,7 @@ public class StaticNonPublicMethodTests
 
 
         // Act & Assert
-        ObjectInvoker.Invoke(typeof(FakeStaticClass), "_method3_1", input);
+        ObjectInvoker.Invoke(typeof(FakeStaticClass), "_method31", input);
     }
 
     [Fact(DisplayName = "Call of a method with parameters and return an exception")]
@@ -131,22 +131,20 @@ public class StaticNonPublicMethodTests
 
         // Act
         Action act = () => ObjectInvoker.
-            Invoke(typeof(FakeStaticClass), "_method3_2", input);
+            Invoke(typeof(FakeStaticClass), "_method32", input);
 
 
         // Assert
         act.Should()
             .Throw<ArgumentException>()
-            .WithMessage("Message exception 3_2");
+            .WithMessage("Message exception 32");
     }
 
     [Fact(DisplayName = "Call of a static method without parameters and without returns")]
     [Trait("Category", "Call private static methods")]
     public void PrivateMethod_WithoutParametersAndRetun_OnlyCall()
-    {
         // Arrange & Act & Assert
-        ObjectInvoker.Invoke(typeof(FakeStaticClass), "_method4_1");
-    }
+        => ObjectInvoker.Invoke(typeof(FakeStaticClass), "_method41");
 
     [Fact(DisplayName = "Call of a static method without parameters and returns an exception")]
     [Trait("Category", "Call private static methods")]
@@ -154,13 +152,13 @@ public class StaticNonPublicMethodTests
     {
         // Arrange & Act
         Action act = () => ObjectInvoker.
-            Invoke(typeof(FakeStaticClass), "_method4_2");
+            Invoke(typeof(FakeStaticClass), "_method42");
 
 
         // Assert
         act.Should()
             .Throw<ArgumentException>()
-            .WithMessage("Message exception 4_2");
+            .WithMessage("Message exception 42");
     }
 
     [Fact(DisplayName = "Try calling an unexisting static method without parameters and without returns - Should return MethodNotFoundException")]
@@ -203,7 +201,7 @@ public class StaticNonPublicMethodTests
 
         // Act
         var act = ObjectInvoker
-            .InvokeAsync<int>(typeof(FakeStaticClass), "_method5_1Async", input)
+            .InvokeAsync<int>(typeof(FakeStaticClass), "_method51Async", input)
             .Result;
 
 
@@ -225,7 +223,7 @@ public class StaticNonPublicMethodTests
         try
         {
             _ = ObjectInvoker
-                .InvokeAsync<int>(typeof(FakeStaticClass), "_method5_2Async", input).Result;
+                .InvokeAsync<int>(typeof(FakeStaticClass), "_method52Async", input).Result;
         }
         catch (AggregateException exception)
         {
@@ -237,17 +235,15 @@ public class StaticNonPublicMethodTests
             .BeOfType<ArgumentException>();
 
         act.Message.Should()
-            .Be("Message exception 5_2");
+            .Be("Message exception 52");
     }
 
     [Fact(DisplayName = "Call of a async static method without parameters and without returns")]
     [Trait("Category", "Call private static methods")]
     public void PrivateAsyncMethod_WithoutParametersAndRetun_OnlyCall()
-    {
         // Arrange & Act & Assert
-        ObjectInvoker
-            .InvokeAsync(typeof(FakeStaticClass), "_method6_1Async").Wait();
-    }
+        => ObjectInvoker
+            .InvokeAsync(typeof(FakeStaticClass), "_method61Async").Wait();
 
     [Fact(DisplayName = "Call of a async static method without parameters and returns an exception")]
     [Trait("Category", "Call private static methods")]
@@ -258,7 +254,7 @@ public class StaticNonPublicMethodTests
         try
         {
             ObjectInvoker
-                .InvokeAsync(typeof(FakeStaticClass), "_method6_2Async").Wait();
+                .InvokeAsync(typeof(FakeStaticClass), "_method62Async").Wait();
         }
         catch (AggregateException exception)
         {
@@ -271,7 +267,7 @@ public class StaticNonPublicMethodTests
             .BeOfType<ArgumentException>();
 
         act.Message.Should()
-            .Be("Message exception 6_2");
+            .Be("Message exception 62");
     }
 
     [Fact(DisplayName = "Try calling a static method is not async with utils 'InvokePrivateMethodAsync' - Should returns 'CallMethodException'")]
@@ -283,7 +279,7 @@ public class StaticNonPublicMethodTests
         try
         {
             ObjectInvoker
-                .InvokeAsync(typeof(FakeStaticClass), "_method4_1")
+                .InvokeAsync(typeof(FakeStaticClass), "_method41")
                 .Wait();
         }
         catch (AggregateException exception)
@@ -297,7 +293,7 @@ public class StaticNonPublicMethodTests
             .BeOfType<CallMethodException>();
 
         act.Message.Should()
-            .Be("It was not possible to call the method '_method4_1'");
+            .Be("It was not possible to call the method '_method41'");
     }
 
     [Fact(DisplayName = "Try calling a static method is not async with utils 'InvokePrivateMethodAsync' - Should returns 'CallMethodException'")]
@@ -309,7 +305,7 @@ public class StaticNonPublicMethodTests
         try
         {
             var response = ObjectInvoker
-                .InvokeAsync<bool>(typeof(FakeStaticClass), "_method4_1")
+                .InvokeAsync<bool>(typeof(FakeStaticClass), "_method41")
                 .GetAwaiter().GetResult();
         }
         catch (AggregateException exception)
@@ -327,6 +323,6 @@ public class StaticNonPublicMethodTests
             .BeOfType<CallMethodException>();
 
         act.Message.Should()
-            .Be("It was not possible to call the method '_method4_1'");
+            .Be("It was not possible to call the method '_method41'");
     }
 }

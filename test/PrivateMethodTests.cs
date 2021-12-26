@@ -19,7 +19,7 @@ public class PrivateMethodTests
 
 
         // Act
-        var act = obj.InvokePrivateMethod<int>("_method1_1", input);
+        var act = obj.InvokePrivateMethod<int>("_method11", input);
 
 
         // Assert
@@ -38,7 +38,7 @@ public class PrivateMethodTests
 
 
         // Act
-        Action act = () => obj.InvokePrivateMethod<int>("_method1_2", input);
+        Action act = () => obj.InvokePrivateMethod<int>("_method12", input);
 
 
         // Assert
@@ -57,7 +57,7 @@ public class PrivateMethodTests
 
 
         // Act
-        var act = obj.InvokePrivateMethod<int>("_method2_1");
+        var act = obj.InvokePrivateMethod<int>("_method21");
 
 
         // Assert
@@ -75,7 +75,7 @@ public class PrivateMethodTests
 
 
         // Act
-        Action act = () => obj.InvokePrivateMethod<int>("_method2_2");
+        Action act = () => obj.InvokePrivateMethod<int>("_method22");
 
 
         // Assert
@@ -95,7 +95,7 @@ public class PrivateMethodTests
 
 
         // Act & Assert
-        obj.InvokePrivateMethod("_method3_1", input);
+        obj.InvokePrivateMethod("_method31", input);
     }
 
     [Fact(DisplayName = "Call of a method with parameters and return an exception")]
@@ -109,7 +109,7 @@ public class PrivateMethodTests
 
 
         // Act
-        Action act = () => obj.InvokePrivateMethod("_method3_2", input);
+        Action act = () => obj.InvokePrivateMethod("_method32", input);
 
 
         // Assert
@@ -128,12 +128,11 @@ public class PrivateMethodTests
 
 
         // Act & Assert
-        obj.InvokePrivateMethod("_method4_1");
+        obj.InvokePrivateMethod("_method41");
     }
 
     [Fact(DisplayName = "Call of a method without parameters and returns an exception")]
     [Trait("Category", "Call private methods")]
-    [Obsolete]
     public void PrivateMethod_WithoutParametersAndRetun_ReturnsException()
     {
         // Arrange
@@ -141,7 +140,7 @@ public class PrivateMethodTests
 
 
         // Act
-        Action act = () => obj.InvokePrivateMethod("_method4_2");
+        Action act = () => obj.InvokePrivateMethod("_method42");
 
 
         // Assert
@@ -202,7 +201,7 @@ public class PrivateMethodTests
 
         // Act
         var act = obj
-            .InvokePrivateMethodAsync<int>("_method5_1Async", input)
+            .InvokePrivateMethodAsync<int>("_method51Async", input)
             .GetAwaiter().GetResult();
 
 
@@ -225,7 +224,7 @@ public class PrivateMethodTests
         Exception act = null;
         try
         {
-            var response = obj.InvokePrivateMethodAsync<int>("_method5_2Async", input)
+            var response = obj.InvokePrivateMethodAsync<int>("_method52Async", input)
                 .GetAwaiter().GetResult();
         }
         catch (AggregateException exception)
@@ -256,7 +255,7 @@ public class PrivateMethodTests
 
 
         // Act & Assert
-        obj.InvokePrivateMethodAsync("_method6_1Async").Wait();
+        obj.InvokePrivateMethodAsync("_method61Async").Wait();
     }
 
     [Fact(DisplayName = "Call of a async method without parameters and returns an exception")]
@@ -272,7 +271,7 @@ public class PrivateMethodTests
         Exception act = null;
         try
         {
-            obj.InvokePrivateMethodAsync("_method6_2Async").Wait();
+            obj.InvokePrivateMethodAsync("_method62Async").Wait();
         }
         catch (AggregateException exception)
         {
@@ -302,7 +301,7 @@ public class PrivateMethodTests
         Exception act = null;
         try
         {
-            obj.InvokePrivateMethodAsync("_method4_1").Wait();
+            obj.InvokePrivateMethodAsync("_method41").Wait();
         }
         catch (AggregateException exception)
         {
@@ -315,7 +314,7 @@ public class PrivateMethodTests
             .BeOfType<CallMethodException>();
 
         act.Message.Should()
-            .Be("It was not possible to call the method '_method4_1'");
+            .Be("It was not possible to call the method '_method41'");
     }
 
     [Fact(DisplayName = "Try calling a method is not async with utils 'InvokePrivateMethodAsync' - Should returns 'CallMethodException'")]
@@ -331,7 +330,7 @@ public class PrivateMethodTests
         Exception act = null;
         try
         {
-            var response = obj.InvokePrivateMethodAsync<bool>("_method4_1").Result;
+            var response = obj.InvokePrivateMethodAsync<bool>("_method41").Result;
         }
         catch (AggregateException exception)
         {
@@ -344,7 +343,7 @@ public class PrivateMethodTests
             .BeOfType<CallMethodException>();
 
         act.Message.Should()
-            .Be("It was not possible to call the method '_method4_1'");
+            .Be("It was not possible to call the method '_method41'");
     }
 
     [Fact(DisplayName = "Call of a method only with returns a value")]
@@ -357,7 +356,7 @@ public class PrivateMethodTests
 
 
         // Act
-        var act = obj.InvokePrivateMethod<int>("Method7_1");
+        var act = obj.InvokePrivateMethod<int>("Method71");
 
 
         // Assert

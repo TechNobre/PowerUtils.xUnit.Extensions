@@ -30,7 +30,7 @@ public class PrivatePropertyTests
 
     [Fact(DisplayName = "Set a public property with private set")]
     [Trait("Category", "Set private properties")]
-    [Obsolete]
+
     public void PrivateProperty_PrivateSet()
     {
         // Arrange
@@ -39,7 +39,9 @@ public class PrivatePropertyTests
 
 
         // Act
+#pragma warning disable CS0618 // Type or member is obsolete
         obj.SetPrivateProperty(p => p.PropSetPrivate, value);
+#pragma warning restore CS0618 // Type or member is obsolete
 
 
         // Assert
@@ -69,7 +71,6 @@ public class PrivatePropertyTests
 
     [Fact(DisplayName = "Set an unexisting private property - Should returns an exception")]
     [Trait("Category", "Set private properties")]
-    [Obsolete]
     public void PrivateProperty_UnexistingProperty_ReturnsException()
     {
         // Arrange
@@ -89,7 +90,6 @@ public class PrivatePropertyTests
 
     [Fact(DisplayName = "Try to set a property only with private set - Should returns an exception")]
     [Trait("Category", "Set private properties")]
-    [Obsolete]
     public void PrivateProperty_OnlyPrivateSet_ReturnsException()
     {
         // Arrange
@@ -98,7 +98,9 @@ public class PrivatePropertyTests
 
 
         // Act
+#pragma warning disable CS0618 // Type or member is obsolete
         Action act = () => obj.SetPrivateProperty(nameof(FakeClassNonPublicProperties.PropSetPrivate), value);
+#pragma warning restore CS0618 // Type or member is obsolete
 
 
         // Assert

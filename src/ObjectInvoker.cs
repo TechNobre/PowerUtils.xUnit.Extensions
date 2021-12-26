@@ -33,7 +33,7 @@ namespace PowerUtils.xUnit.Extensions
 
             try
             {
-                object result = methodInfo.Invoke(null, parameters);
+                var result = methodInfo.Invoke(null, parameters);
                 return (TResult)result;
             }
             catch (TargetInvocationException exception)

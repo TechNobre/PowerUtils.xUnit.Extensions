@@ -37,8 +37,8 @@ namespace PowerUtils.xUnit.Extensions
                     continue; // Go to next constructor. It is not valid constructor
                 }
 
-                bool validConstructor = true;
-                for(int index = 0; index < inputParameters.Length; index++)
+                var validConstructor = true;
+                for(var index = 0; index < inputParameters.Length; index++)
                 {
                     if(inputParameters[index].GetType() != currectParameters[index].ParameterType)
                     { // The type of the `inputParameters` and parameters type of the currenct constructor does not match
