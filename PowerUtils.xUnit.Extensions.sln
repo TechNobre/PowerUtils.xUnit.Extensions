@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1.PowerUtils.xUnit.Extensions", "src\1.PowerUtils.xUnit.Extensions.csproj", "{5C603DBA-8704-4BC4-BF36-8375B8B5AEDC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.PowerUtils.xUnit.Extensions.Tests", "test\2.PowerUtils.xUnit.Extensions.Tests.csproj", "{F6BCC261-5011-4F31-AF21-7EC34D6EA099}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.PowerUtils.xUnit.Extensions.Tests", "tests\2.PowerUtils.xUnit.Extensions.Tests.csproj", "{F6BCC261-5011-4F31-AF21-7EC34D6EA099}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{F9273028-EBDF-4686-AC71-67056DD8A385}"
 	ProjectSection(SolutionItems) = preProject
