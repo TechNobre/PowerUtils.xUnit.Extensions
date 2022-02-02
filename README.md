@@ -1,9 +1,13 @@
 # PowerUtils.xUnit.Extensions
 Utils, helpers and extensions to create tests with xUnti
 
-![CI](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/actions/workflows/main.yml/badge.svg)
+![Tests](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/actions/workflows/main.yml/badge.svg)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=TechNobre_PowerUtils.xUnit.Extensions&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=TechNobre_PowerUtils.xUnit.Extensions)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=TechNobre_PowerUtils.xUnit.Extensions&metric=coverage)](https://sonarcloud.io/summary/new_code?id=TechNobre_PowerUtils.xUnit.Extensions)
+
 [![NuGet](https://img.shields.io/nuget/v/PowerUtils.xUnit.Extensions.svg)](https://www.nuget.org/packages/PowerUtils.xUnit.Extensions)
 [![Nuget](https://img.shields.io/nuget/dt/PowerUtils.xUnit.Extensions.svg)](https://www.nuget.org/packages/PowerUtils.xUnit.Extensions)
+[![License: MIT](https://img.shields.io/github/license/ofpinewood/http-exceptions.svg)](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/blob/main/LICENSE)
 
 
 
@@ -236,57 +240,6 @@ The methods `SetPrivateProperty`, `SetPrivateField`, `InvokePrivateMethod`, `Inv
 
 
 
+## Changelog
 
-## Release Notes
-
-
-### v2.1.0 - 2021/12/15
-
-#### New Features
-- Added new helper to invoke non public methods `ObjectInvoker.Invoke`;
-
-#### Enhancements
-- Improved the methods `InvokeNonPublicMethod` and `InvokeNonPublicMethodAsync` to return better exceptions;
-
-
-
-### v2.0.0 - 2021/11/20
-#### Updates
-- Added support to .NET 6
-
-#### Breaking Changes
-- Discontinued the method `PrivatePropertyExtensions.SetPrivateProperty`. New method `SetNonPublicProperty`;
-- Discontinued the method `PrivatePropertyExtensions.SetPrivateField`. New method `SetNonPublicField`;
-- Discontinued the method `PrivatePropertyExtensions.InvokePrivateMethod`. New method `InvokeNonPublicMethod`;
-- Discontinued the method `PrivatePropertyExtensions.InvokePrivateMethodAsync`. New method `InvokeNonPublicMethodAsync`;
-
-
-
-### v1.3.0 - 2021/08/28
-
-#### New Features
-- Added new exception `ConstructorNotFoundException`;
-- Added new factory to create objects by non public constructor;
-
-
-
-### v1.2.0 - 2021/08/06
-
-#### New Features
-- Added new exceptions `PropertyNotFoundException` and `FieldNotFoundException`;
-- Added new extensions to set private properties and fields;
-
-
-
-### v1.1.0 - 2021/07/24
-
-#### New Features
-- Added async private method invocations
-  - `obj.InvokePrivateMethodAsync<TResult>();`
-  - `obj.InvokePrivateMethodAsync();`
-
-
-
-### v1.0.0 - 2021/07/23
-
-- Kick start project
+[Here](./CHANGELOG.md)
