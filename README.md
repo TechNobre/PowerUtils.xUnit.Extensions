@@ -3,7 +3,6 @@ Utils, helpers and extensions to create tests with xUnti
 
 ![Tests](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/actions/workflows/main.yml/badge.svg)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=TechNobre_PowerUtils.xUnit.Extensions&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=TechNobre_PowerUtils.xUnit.Extensions)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=TechNobre_PowerUtils.xUnit.Extensions&metric=coverage)](https://sonarcloud.io/summary/new_code?id=TechNobre_PowerUtils.xUnit.Extensions)
 
 [![NuGet](https://img.shields.io/nuget/v/PowerUtils.xUnit.Extensions.svg)](https://www.nuget.org/packages/PowerUtils.xUnit.Extensions)
 [![Nuget](https://img.shields.io/nuget/dt/PowerUtils.xUnit.Extensions.svg)](https://www.nuget.org/packages/PowerUtils.xUnit.Extensions)
