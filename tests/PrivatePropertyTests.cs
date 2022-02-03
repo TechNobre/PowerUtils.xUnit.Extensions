@@ -69,6 +69,7 @@ public class PrivatePropertyTests
 
     [Fact(DisplayName = "Set an unexisting private property - Should returns an exception")]
     [Trait("Category", "Set private properties")]
+    [Obsolete]
     public void PrivateProperty_UnexistingProperty_ReturnsException()
     {
         // Arrange

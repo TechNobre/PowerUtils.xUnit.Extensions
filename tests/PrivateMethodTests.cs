@@ -148,6 +148,7 @@ public class PrivateMethodTests
 
     [Fact(DisplayName = "Call of a method without parameters and returns an exception")]
     [Trait("Category", "Call private methods")]
+    [Obsolete]
     public void PrivateMethod_WithoutParametersAndRetun_ReturnsException()
     {
         // Arrange
