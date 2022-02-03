@@ -9,7 +9,7 @@
 
 ### New Features
 
-- Added const PriorityOrderer.Name and PriorityOrderer.Assembly to facilitate the ordering of tests;
+- Added const `PriorityOrderer.Name` and `PriorityOrderer.Assembly` to facilitate the ordering of tests;
 
 
 
