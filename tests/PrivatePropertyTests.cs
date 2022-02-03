@@ -1,15 +1,14 @@
-﻿using FluentAssertions;
+﻿using System;
 using PowerUtils.xUnit.Extensions.Exceptions;
 using PowerUtils.xUnit.Extensions.Tests.Fakes;
-using System;
-using Xunit;
 
 namespace PowerUtils.xUnit.Extensions.Tests;
 
-public class NonPublicPropertyTests
+public class PrivatePropertyTests
 {
     [Fact(DisplayName = "Try setting a private set property with null object - Should returns an exception")]
     [Trait("Category", "Set private properties")]
+    [Obsolete]
     public void PrivateSetProperty_NullObject_ReturnsException()
     {
         // Arrange
@@ -18,7 +17,7 @@ public class NonPublicPropertyTests
 
 
         // Act
-        Action act = () => obj.SetNonPublicProperty(p => p.PropSetPrivate, value);
+        Action act = () => obj.SetPrivateProperty(p => p.PropSetPrivate, value);
 
 
         // Assert
@@ -29,7 +28,8 @@ public class NonPublicPropertyTests
 
     [Fact(DisplayName = "Set a public property with private set")]
     [Trait("Category", "Set private properties")]
-    public void PrivateProperty_PrivateSet_Success()
+
+    public void PrivateProperty_PrivateSet()
     {
         // Arrange
         var value = "Fake";
@@ -37,7 +37,9 @@ public class NonPublicPropertyTests
 
 
         // Act
-        obj.SetNonPublicProperty(p => p.PropSetPrivate, value);
+#pragma warning disable CS0618 // Type or member is obsolete
+        obj.SetPrivateProperty(p => p.PropSetPrivate, value);
+#pragma warning restore CS0618 // Type or member is obsolete
 
 
         // Assert
@@ -47,6 +49,7 @@ public class NonPublicPropertyTests
 
     [Fact(DisplayName = "Set an existing private property")]
     [Trait("Category", "Set private properties")]
+    [Obsolete]
     public void PrivateProperty_ExistingProperty_SetValue()
     {
         // Arrange
@@ -55,7 +58,7 @@ public class NonPublicPropertyTests
 
 
         // Act
-        obj.SetNonPublicProperty("_propPrivate", value);
+        obj.SetPrivateProperty("_propPrivate", value);
         var act = obj.GetValueOf_propPrivate();
 
 
@@ -74,7 +77,7 @@ public class NonPublicPropertyTests
 
 
         // Act
-        Action act = () => obj.SetNonPublicProperty("_private", value);
+        Action act = () => obj.SetPrivateProperty("_private", value);
 
 
         // Assert
@@ -93,7 +96,9 @@ public class NonPublicPropertyTests
 
 
         // Act
-        Action act = () => obj.SetNonPublicProperty(nameof(FakeClassNonPublicProperties.PropSetPrivate), value);
+#pragma warning disable CS0618 // Type or member is obsolete
+        Action act = () => obj.SetPrivateProperty(nameof(FakeClassNonPublicProperties.PropSetPrivate), value);
+#pragma warning restore CS0618 // Type or member is obsolete
 
 
         // Assert
@@ -104,6 +109,7 @@ public class NonPublicPropertyTests
 
     [Fact(DisplayName = "Set a private property with null object - Should returns an exception")]
     [Trait("Category", "Set private properties")]
+    [Obsolete]
     public void PrivateProperty_NullObject_ReturnsException()
     {
         // Arrange
@@ -112,7 +118,7 @@ public class NonPublicPropertyTests
 
 
         // Act
-        Action act = () => obj.SetNonPublicProperty(nameof(FakeClassNonPublicProperties.PropSetPrivate), value);
+        Action act = () => obj.SetPrivateProperty(nameof(FakeClassNonPublicProperties.PropSetPrivate), value);
 
 
         // Assert
@@ -123,6 +129,7 @@ public class NonPublicPropertyTests
 
     [Fact(DisplayName = "Try setting a private field with null object - Should returns an exception")]
     [Trait("Category", "Set private properties")]
+    [Obsolete]
     public void PrivateField_NullObject_ReturnsException()
     {
         // Arrange
@@ -131,7 +138,7 @@ public class NonPublicPropertyTests
 
 
         // Act
-        Action act = () => obj.SetNonPublicField("_privateField", value);
+        Action act = () => obj.SetPrivateField("_privateField", value);
 
 
         // Assert
@@ -142,6 +149,7 @@ public class NonPublicPropertyTests
 
     [Fact(DisplayName = "Try setting an unexisting field - Should returns an exception")]
     [Trait("Category", "Set private properties")]
+    [Obsolete]
     public void PrivateField_UnexistingField_ReturnsException()
     {
         // Arrange
@@ -150,7 +158,7 @@ public class NonPublicPropertyTests
 
 
         // Act
-        Action act = () => obj.SetNonPublicField("_private", value);
+        Action act = () => obj.SetPrivateField("_private", value);
 
 
         // Assert
@@ -161,6 +169,7 @@ public class NonPublicPropertyTests
 
     [Fact(DisplayName = "Set an existing private field")]
     [Trait("Category", "Set private properties")]
+    [Obsolete]
     public void PrivateField_ExistingValue_SetValue()
     {
         // Arrange
@@ -169,7 +178,7 @@ public class NonPublicPropertyTests
 
 
         // Act
-        obj.SetNonPublicField("_privateField", value);
+        obj.SetPrivateField("_privateField", value);
         var act = obj.GetValueOf_privateField();
 
 
@@ -180,6 +189,7 @@ public class NonPublicPropertyTests
 
     [Fact(DisplayName = "Try setting an field with method SetField - Should returns an exception")]
     [Trait("Category", "Set private properties")]
+    [Obsolete]
     public void PrivateProperty_SetPrivateField_ReturnsException()
     {
         // Arrange
@@ -188,7 +198,7 @@ public class NonPublicPropertyTests
 
 
         // Act
-        Action act = () => obj.SetNonPublicField("_propPrivate", value);
+        Action act = () => obj.SetPrivateField("_propPrivate", value);
 
 
         // Assert
@@ -199,6 +209,7 @@ public class NonPublicPropertyTests
 
     [Fact(DisplayName = "Set a protected property with private set")]
     [Trait("Category", "Set protected properties")]
+    [Obsolete]
     public void ProtectedProperty_PrivateSet()
     {
         // Arrange
@@ -207,7 +218,7 @@ public class NonPublicPropertyTests
 
 
         // Act
-        obj.SetNonPublicProperty("PropProtected", value);
+        obj.SetPrivateProperty("PropProtected", value);
 
 
         // Assert
@@ -217,6 +228,7 @@ public class NonPublicPropertyTests
 
     [Fact(DisplayName = "Set a protected field")]
     [Trait("Category", "Set protected properties")]
+    [Obsolete]
     public void ProtectedField_SetValue()
     {
         // Arrange
@@ -225,7 +237,7 @@ public class NonPublicPropertyTests
 
 
         // Act
-        obj.SetNonPublicField("ProtectedField", value);
+        obj.SetPrivateField("ProtectedField", value);
 
 
         // Assert

@@ -1,8 +1,6 @@
-﻿using FluentAssertions;
+﻿using System;
 using PowerUtils.xUnit.Extensions.Exceptions;
 using PowerUtils.xUnit.Extensions.Tests.Fakes;
-using System;
-using Xunit;
 
 namespace PowerUtils.xUnit.Extensions.Tests;
 

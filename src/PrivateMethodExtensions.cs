@@ -1,7 +1,7 @@
-﻿using PowerUtils.xUnit.Extensions.Exceptions;
-using System;
+﻿using System;
 using System.Reflection;
 using System.Threading.Tasks;
+using PowerUtils.xUnit.Extensions.Exceptions;
 
 namespace PowerUtils.xUnit.Extensions
 {
@@ -29,7 +29,7 @@ namespace PowerUtils.xUnit.Extensions
 
             try
             {
-                object result = methodInfo.Invoke(obj, parameters);
+                var result = methodInfo.Invoke(obj, parameters);
                 return (TResult)result;
             }
             catch(TargetInvocationException exception)

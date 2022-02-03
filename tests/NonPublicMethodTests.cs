@@ -1,8 +1,6 @@
-﻿using FluentAssertions;
+﻿using System;
 using PowerUtils.xUnit.Extensions.Exceptions;
 using PowerUtils.xUnit.Extensions.Tests.Fakes;
-using System;
-using Xunit;
 
 namespace PowerUtils.xUnit.Extensions.Tests;
 
@@ -20,7 +18,7 @@ public class NonPublicMethodTests
 
 
         // Act
-        Action act = () => obj.InvokeNonPublicMethod("_method1_1", input);
+        Action act = () => obj.InvokeNonPublicMethod("_method11", input);
 
 
         // Assert
@@ -39,7 +37,7 @@ public class NonPublicMethodTests
 
 
         // Act
-        Action act = () => obj.InvokeNonPublicMethod<int>("_method1_1", input);
+        Action act = () => obj.InvokeNonPublicMethod<int>("_method11", input);
 
 
         // Assert
@@ -58,7 +56,7 @@ public class NonPublicMethodTests
 
 
         // Act
-        var act = obj.InvokeNonPublicMethod<int>("_method1_1", input);
+        var act = obj.InvokeNonPublicMethod<int>("_method11", input);
 
 
         // Assert
@@ -76,7 +74,7 @@ public class NonPublicMethodTests
 
 
         // Act
-        Action act = () => obj.InvokeNonPublicMethod<int>("_method1_2", input);
+        Action act = () => obj.InvokeNonPublicMethod<int>("_method12", input);
 
 
         // Assert
@@ -94,7 +92,7 @@ public class NonPublicMethodTests
 
 
         // Act
-        var act = obj.InvokeNonPublicMethod<int>("_method2_1");
+        var act = obj.InvokeNonPublicMethod<int>("_method21");
 
 
         // Assert
@@ -111,7 +109,7 @@ public class NonPublicMethodTests
 
 
         // Act
-        Action act = () => obj.InvokeNonPublicMethod<int>("_method2_2");
+        Action act = () => obj.InvokeNonPublicMethod<int>("_method22");
 
 
         // Assert
@@ -130,7 +128,7 @@ public class NonPublicMethodTests
 
 
         // Act & Assert
-        obj.InvokeNonPublicMethod("_method3_1", input);
+        obj.InvokeNonPublicMethod("_method31", input);
     }
 
     [Fact(DisplayName = "Call of a method with parameters and return an exception")]
@@ -143,7 +141,7 @@ public class NonPublicMethodTests
 
 
         // Act
-        Action act = () => obj.InvokeNonPublicMethod("_method3_2", input);
+        Action act = () => obj.InvokeNonPublicMethod("_method32", input);
 
 
         // Assert
@@ -161,7 +159,7 @@ public class NonPublicMethodTests
 
 
         // Act & Assert
-        obj.InvokeNonPublicMethod("_method4_1");
+        obj.InvokeNonPublicMethod("_method41");
     }
 
     [Fact(DisplayName = "Call of a method without parameters and returns an exception")]
@@ -173,7 +171,7 @@ public class NonPublicMethodTests
 
 
         // Act
-        Action act = () => obj.InvokeNonPublicMethod("_method4_2");
+        Action act = () => obj.InvokeNonPublicMethod("_method42");
 
 
         // Assert
@@ -231,7 +229,7 @@ public class NonPublicMethodTests
 
         // Act
         var act = obj
-            .InvokeNonPublicMethodAsync<int>("_method5_1Async", input)
+            .InvokeNonPublicMethodAsync<int>("_method51Async", input)
             .Result;
 
 
@@ -253,9 +251,9 @@ public class NonPublicMethodTests
         Exception act = null;
         try
         {
-            _ = obj.InvokeNonPublicMethodAsync<int>("_method5_2Async", input).Result;
+            _ = obj.InvokeNonPublicMethodAsync<int>("_method52Async", input).Result;
         }
-        catch (AggregateException exception)
+        catch(AggregateException exception)
         {
             act = exception.InnerExceptions[0];
         }
@@ -277,7 +275,7 @@ public class NonPublicMethodTests
 
 
         // Act & Assert
-        obj.InvokeNonPublicMethodAsync("_method6_1Async").Wait();
+        obj.InvokeNonPublicMethodAsync("_method61Async").Wait();
     }
 
     [Fact(DisplayName = "Call of a async method without parameters and returns an exception")]
@@ -292,9 +290,9 @@ public class NonPublicMethodTests
         Exception act = null;
         try
         {
-            obj.InvokeNonPublicMethodAsync("_method6_2Async").Wait();
+            obj.InvokeNonPublicMethodAsync("_method62Async").Wait();
         }
-        catch (AggregateException exception)
+        catch(AggregateException exception)
         {
             act = exception.InnerExceptions[0];
         }
@@ -321,9 +319,9 @@ public class NonPublicMethodTests
         Exception act = null;
         try
         {
-            obj.InvokeNonPublicMethodAsync("_method4_1").Wait();
+            obj.InvokeNonPublicMethodAsync("_method41").Wait();
         }
-        catch (AggregateException exception)
+        catch(AggregateException exception)
         {
             act = exception.InnerExceptions[0];
         }
@@ -334,7 +332,7 @@ public class NonPublicMethodTests
             .BeOfType<CallMethodException>();
 
         act.Message.Should()
-            .Be("It was not possible to call the method '_method4_1'");
+            .Be("It was not possible to call the method '_method41'");
     }
 
     [Fact(DisplayName = "Try calling a method is not async with utils 'InvokePrivateMethodAsync' - Should returns 'CallMethodException'")]
@@ -349,14 +347,14 @@ public class NonPublicMethodTests
         Exception act = null;
         try
         {
-            var response = obj.InvokeNonPublicMethodAsync<bool>("_method4_1")
+            var response = obj.InvokeNonPublicMethodAsync<bool>("_method41")
                 .GetAwaiter().GetResult();
         }
-        catch (AggregateException exception)
+        catch(AggregateException exception)
         {
             act = exception.InnerExceptions[0];
         }
-        catch (CallMethodException exception)
+        catch(CallMethodException exception)
         {
             act = exception;
         }
@@ -367,7 +365,7 @@ public class NonPublicMethodTests
             .BeOfType<CallMethodException>();
 
         act.Message.Should()
-            .Be("It was not possible to call the method '_method4_1'");
+            .Be("It was not possible to call the method '_method41'");
     }
 
     [Fact(DisplayName = "Call of a method only with returns a value")]
@@ -379,7 +377,7 @@ public class NonPublicMethodTests
 
 
         // Act
-        var act = obj.InvokeNonPublicMethod<int>("Method7_1");
+        var act = obj.InvokeNonPublicMethod<int>("Method71");
 
 
         // Assert

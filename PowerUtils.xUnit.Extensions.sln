@@ -1,20 +1,28 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1.PowerUtils.xUnit.Extensions", "src\1.PowerUtils.xUnit.Extensions.csproj", "{5C603DBA-8704-4BC4-BF36-8375B8B5AEDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerUtils.xUnit.Extensions", "src\PowerUtils.xUnit.Extensions.csproj", "{186C9A5F-4E0C-4681-A191-734BBA063038}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.PowerUtils.xUnit.Extensions.Tests", "test\2.PowerUtils.xUnit.Extensions.Tests.csproj", "{F6BCC261-5011-4F31-AF21-7EC34D6EA099}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerUtils.xUnit.Extensions.Tests", "tests\PowerUtils.xUnit.Extensions.Tests.csproj", "{F6BCC261-5011-4F31-AF21-7EC34D6EA099}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{F9273028-EBDF-4686-AC71-67056DD8A385}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
+		CHANGELOG.md = CHANGELOG.md
 		global.json = global.json
 		LICENSE = LICENSE
-		.github\workflows\main.yml = .github\workflows\main.yml
 		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cicd", "cicd", "{0119445E-83DE-4DF1-A294-1CD7AD47767C}"
+	ProjectSection(SolutionItems) = preProject
+		.github\dependabot.yml = .github\dependabot.yml
+		.github\workflows\publish-nuget.yml = .github\workflows\publish-nuget.yml
+		.github\workflows\sonarcloud.yml = .github\workflows\sonarcloud.yml
+		.github\workflows\test-project.yml = .github\workflows\test-project.yml
 	EndProjectSection
 EndProject
 Global
@@ -27,18 +35,18 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5C603DBA-8704-4BC4-BF36-8375B8B5AEDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5C603DBA-8704-4BC4-BF36-8375B8B5AEDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5C603DBA-8704-4BC4-BF36-8375B8B5AEDC}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{5C603DBA-8704-4BC4-BF36-8375B8B5AEDC}.Debug|x64.Build.0 = Debug|Any CPU
-		{5C603DBA-8704-4BC4-BF36-8375B8B5AEDC}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{5C603DBA-8704-4BC4-BF36-8375B8B5AEDC}.Debug|x86.Build.0 = Debug|Any CPU
-		{5C603DBA-8704-4BC4-BF36-8375B8B5AEDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5C603DBA-8704-4BC4-BF36-8375B8B5AEDC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5C603DBA-8704-4BC4-BF36-8375B8B5AEDC}.Release|x64.ActiveCfg = Release|Any CPU
-		{5C603DBA-8704-4BC4-BF36-8375B8B5AEDC}.Release|x64.Build.0 = Release|Any CPU
-		{5C603DBA-8704-4BC4-BF36-8375B8B5AEDC}.Release|x86.ActiveCfg = Release|Any CPU
-		{5C603DBA-8704-4BC4-BF36-8375B8B5AEDC}.Release|x86.Build.0 = Release|Any CPU
+		{186C9A5F-4E0C-4681-A191-734BBA063038}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{186C9A5F-4E0C-4681-A191-734BBA063038}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{186C9A5F-4E0C-4681-A191-734BBA063038}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{186C9A5F-4E0C-4681-A191-734BBA063038}.Debug|x64.Build.0 = Debug|Any CPU
+		{186C9A5F-4E0C-4681-A191-734BBA063038}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{186C9A5F-4E0C-4681-A191-734BBA063038}.Debug|x86.Build.0 = Debug|Any CPU
+		{186C9A5F-4E0C-4681-A191-734BBA063038}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{186C9A5F-4E0C-4681-A191-734BBA063038}.Release|Any CPU.Build.0 = Release|Any CPU
+		{186C9A5F-4E0C-4681-A191-734BBA063038}.Release|x64.ActiveCfg = Release|Any CPU
+		{186C9A5F-4E0C-4681-A191-734BBA063038}.Release|x64.Build.0 = Release|Any CPU
+		{186C9A5F-4E0C-4681-A191-734BBA063038}.Release|x86.ActiveCfg = Release|Any CPU
+		{186C9A5F-4E0C-4681-A191-734BBA063038}.Release|x86.Build.0 = Release|Any CPU
 		{F6BCC261-5011-4F31-AF21-7EC34D6EA099}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F6BCC261-5011-4F31-AF21-7EC34D6EA099}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6BCC261-5011-4F31-AF21-7EC34D6EA099}.Debug|x64.ActiveCfg = Debug|Any CPU
