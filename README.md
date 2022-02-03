@@ -131,7 +131,7 @@ sampleClass.SetNonPublicField("_privateField", "Value");
 #### Sort tests by priority <a name="SortTestsByPriority"></a>
 
 ```csharp
-[TestCaseOrderer("PowerUtils.xUnit.Extensions.OrderTests.PriorityOrderer", "PowerUtils.xUnit.Extensions")]
+[TestCaseOrderer(PriorityOrderer.Name, PriorityOrderer.Assembly)]
 public class Tests
 {
     [Fact, TestPriority(2)]

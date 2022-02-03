@@ -1,7 +1,7 @@
-﻿using PowerUtils.xUnit.Extensions.Exceptions;
-using System;
+﻿using System;
 using System.Reflection;
 using System.Threading.Tasks;
+using PowerUtils.xUnit.Extensions.Exceptions;
 
 namespace PowerUtils.xUnit.Extensions
 {

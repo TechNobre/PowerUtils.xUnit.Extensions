@@ -1,6 +1,6 @@
-﻿using PowerUtils.xUnit.Extensions.Exceptions;
-using System.Linq;
+﻿using System.Linq;
 using System.Reflection;
+using PowerUtils.xUnit.Extensions.Exceptions;
 
 namespace PowerUtils.xUnit.Extensions
 {

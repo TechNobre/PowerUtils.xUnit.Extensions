@@ -3,13 +3,13 @@
 
 
 
-## [2.2.0] - 2022-02-02
+## [2.2.0] - 2022-02-03
 [Full Changelog](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/compare/v2.1.0...v2.2.0)
 
 
 ### New Features
 
-- Added new helper to invoke non public methods `ObjectInvoker.Invoke`;
+- Added const PriorityOrderer.Name and PriorityOrderer.Assembly to facilitate the ordering of tests;
 
 
 

@@ -1,8 +1,6 @@
-﻿using FluentAssertions;
+﻿using System;
 using PowerUtils.xUnit.Extensions.Exceptions;
 using PowerUtils.xUnit.Extensions.Tests.Fakes;
-using System;
-using Xunit;
 
 namespace PowerUtils.xUnit.Extensions.Tests;
 
@@ -225,7 +223,7 @@ public class StaticNonPublicMethodTests
             _ = ObjectInvoker
                 .InvokeAsync<int>(typeof(FakeStaticClass), "_method52Async", input).Result;
         }
-        catch (AggregateException exception)
+        catch(AggregateException exception)
         {
             act = exception.InnerExceptions[0];
         }
@@ -256,7 +254,7 @@ public class StaticNonPublicMethodTests
             ObjectInvoker
                 .InvokeAsync(typeof(FakeStaticClass), "_method62Async").Wait();
         }
-        catch (AggregateException exception)
+        catch(AggregateException exception)
         {
             act = exception.InnerExceptions[0];
         }
@@ -282,7 +280,7 @@ public class StaticNonPublicMethodTests
                 .InvokeAsync(typeof(FakeStaticClass), "_method41")
                 .Wait();
         }
-        catch (AggregateException exception)
+        catch(AggregateException exception)
         {
             act = exception.InnerExceptions[0];
         }
@@ -308,11 +306,11 @@ public class StaticNonPublicMethodTests
                 .InvokeAsync<bool>(typeof(FakeStaticClass), "_method41")
                 .GetAwaiter().GetResult();
         }
-        catch (AggregateException exception)
+        catch(AggregateException exception)
         {
             act = exception.InnerExceptions[0];
         }
-        catch (CallMethodException exception)
+        catch(CallMethodException exception)
         {
             act = exception;
         }

@@ -1,7 +1,7 @@
-﻿using PowerUtils.xUnit.Extensions.Exceptions;
-using System;
+﻿using System;
 using System.Reflection;
 using System.Threading.Tasks;
+using PowerUtils.xUnit.Extensions.Exceptions;
 
 namespace PowerUtils.xUnit.Extensions
 {
@@ -19,7 +19,7 @@ namespace PowerUtils.xUnit.Extensions
         /// <exception cref="ArgumentNullException">When the <paramref name="obj">obj</paramref> is null</exception>
         public static TResult InvokeNonPublicMethod<TResult>(this object obj, string methodName, params object[] parameters)
         {
-            if (obj == null)
+            if(obj == null)
             {
                 throw new ArgumentNullException(nameof(obj), $"The '{nameof(obj)}' cannot be null");
             }
@@ -53,7 +53,7 @@ namespace PowerUtils.xUnit.Extensions
         /// <exception cref="ArgumentNullException">When the <paramref name="obj">obj</paramref> is null</exception>
         public static void InvokeNonPublicMethod(this object obj, string methodName, params object[] parameters)
         {
-            if (obj == null)
+            if(obj == null)
             {
                 throw new ArgumentNullException(nameof(obj), $"The '{nameof(obj)}' cannot be null");
             }
@@ -89,7 +89,7 @@ namespace PowerUtils.xUnit.Extensions
         /// <exception cref="ArgumentNullException">When the <paramref name="obj">obj</paramref> is null</exception>
         public static async Task<TResult> InvokeNonPublicMethodAsync<TResult>(this object obj, string methodName, params object[] parameters)
         {
-            if (obj == null)
+            if(obj == null)
             {
                 throw new ArgumentNullException(nameof(obj), $"The '{nameof(obj)}' cannot be null");
             }
@@ -129,7 +129,7 @@ namespace PowerUtils.xUnit.Extensions
         /// <exception cref="ArgumentNullException">When the <paramref name="obj">obj</paramref> is null</exception>
         public static async Task InvokeNonPublicMethodAsync(this object obj, string methodName, params object[] parameters)
         {
-            if (obj == null)
+            if(obj == null)
             {
                 throw new ArgumentNullException(nameof(obj), $"The '{nameof(obj)}' cannot be null");
             }

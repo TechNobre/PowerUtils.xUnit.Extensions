@@ -1,8 +1,6 @@
-﻿using FluentAssertions;
+﻿using System;
 using PowerUtils.xUnit.Extensions.Exceptions;
 using PowerUtils.xUnit.Extensions.Tests.Fakes;
-using System;
-using Xunit;
 
 namespace PowerUtils.xUnit.Extensions.Tests;
 
@@ -227,11 +225,11 @@ public class PrivateMethodTests
             var response = obj.InvokePrivateMethodAsync<int>("_method52Async", input)
                 .GetAwaiter().GetResult();
         }
-        catch (AggregateException exception)
+        catch(AggregateException exception)
         {
             act = exception.InnerExceptions[0];
         }
-        catch (ArgumentException exception)
+        catch(ArgumentException exception)
         {
             act = exception;
         }
@@ -273,7 +271,7 @@ public class PrivateMethodTests
         {
             obj.InvokePrivateMethodAsync("_method62Async").Wait();
         }
-        catch (AggregateException exception)
+        catch(AggregateException exception)
         {
             act = exception.InnerExceptions[0];
         }
@@ -303,7 +301,7 @@ public class PrivateMethodTests
         {
             obj.InvokePrivateMethodAsync("_method41").Wait();
         }
-        catch (AggregateException exception)
+        catch(AggregateException exception)
         {
             act = exception.InnerExceptions[0];
         }
@@ -332,7 +330,7 @@ public class PrivateMethodTests
         {
             var response = obj.InvokePrivateMethodAsync<bool>("_method41").Result;
         }
-        catch (AggregateException exception)
+        catch(AggregateException exception)
         {
             act = exception.InnerExceptions[0];
         }

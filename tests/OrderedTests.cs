@@ -1,9 +1,8 @@
 ﻿using PowerUtils.xUnit.Extensions.OrderTests;
-using Xunit;
 
 namespace PowerUtils.xUnit.Extensions.Tests;
 
-[TestCaseOrderer("PowerUtils.xUnit.Extensions.OrderTests.PriorityOrderer", "PowerUtils.xUnit.Extensions")]
+[TestCaseOrderer(PriorityOrderer.Name, PriorityOrderer.Assembly)]
 public class OrderedTests
 {
     private static bool _test1Called;

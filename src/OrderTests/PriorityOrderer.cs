@@ -8,6 +8,9 @@ namespace PowerUtils.xUnit.Extensions.OrderTests
 {
     public class PriorityOrderer : ITestCaseOrderer
     {
+        public const string Name = "PowerUtils.xUnit.Extensions.OrderTests.PriorityOrderer";
+        public const string Assembly = "PowerUtils.xUnit.Extensions";
+
         public IEnumerable<TTestCase> OrderTestCases<TTestCase>(IEnumerable<TTestCase> testCases)
             where TTestCase : ITestCase
         {
@@ -22,7 +25,7 @@ namespace PowerUtils.xUnit.Extensions.OrderTests
                     priority = attr.GetNamedArgument<int>("Priority");
                 }
 
-                PriorityOrderer._getOrCreate(sortedMethods, priority).Add(testCase);
+                _getOrCreate(sortedMethods, priority).Add(testCase);
             }
 
             foreach(var list in sortedMethods.Keys.Select(priority => sortedMethods[priority]))

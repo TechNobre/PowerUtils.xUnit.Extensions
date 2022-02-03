@@ -1,8 +1,6 @@
-﻿using FluentAssertions;
+﻿using System;
 using PowerUtils.xUnit.Extensions.Exceptions;
 using PowerUtils.xUnit.Extensions.Tests.Fakes;
-using System;
-using Xunit;
 
 namespace PowerUtils.xUnit.Extensions.Tests;
 
@@ -255,7 +253,7 @@ public class NonPublicMethodTests
         {
             _ = obj.InvokeNonPublicMethodAsync<int>("_method52Async", input).Result;
         }
-        catch (AggregateException exception)
+        catch(AggregateException exception)
         {
             act = exception.InnerExceptions[0];
         }
@@ -294,7 +292,7 @@ public class NonPublicMethodTests
         {
             obj.InvokeNonPublicMethodAsync("_method62Async").Wait();
         }
-        catch (AggregateException exception)
+        catch(AggregateException exception)
         {
             act = exception.InnerExceptions[0];
         }
@@ -323,7 +321,7 @@ public class NonPublicMethodTests
         {
             obj.InvokeNonPublicMethodAsync("_method41").Wait();
         }
-        catch (AggregateException exception)
+        catch(AggregateException exception)
         {
             act = exception.InnerExceptions[0];
         }
@@ -352,11 +350,11 @@ public class NonPublicMethodTests
             var response = obj.InvokeNonPublicMethodAsync<bool>("_method41")
                 .GetAwaiter().GetResult();
         }
-        catch (AggregateException exception)
+        catch(AggregateException exception)
         {
             act = exception.InnerExceptions[0];
         }
-        catch (CallMethodException exception)
+        catch(CallMethodException exception)
         {
             act = exception;
         }
