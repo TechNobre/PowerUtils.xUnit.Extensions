@@ -6,7 +6,7 @@ Utils, helpers and extensions to create tests with xUnti
 
 [![NuGet](https://img.shields.io/nuget/v/PowerUtils.xUnit.Extensions.svg)](https://www.nuget.org/packages/PowerUtils.xUnit.Extensions)
 [![Nuget](https://img.shields.io/nuget/dt/PowerUtils.xUnit.Extensions.svg)](https://www.nuget.org/packages/PowerUtils.xUnit.Extensions)
-[![License: MIT](https://img.shields.io/github/license/ofpinewood/http-exceptions.svg)](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/blob/main/LICENSE)
+[![License: MIT](https://img.shields.io/github/license/TechNobre/PowerUtils.xUnit.Extensions.svg)](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/blob/main/LICENSE)
 
 
 
