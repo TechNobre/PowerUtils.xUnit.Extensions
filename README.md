@@ -225,11 +225,6 @@ var obj2 = ObjectFactory.Create<TestObject>("My name", 50);
 
 
 
-## :warning: Warning
-The methods `SetPrivateProperty`, `SetPrivateField`, `InvokePrivateMethod`, `InvokePrivateMethodAsync` will be removed in 2021/05/31.
-
-
-
 ## Contribution <a name="contribution"></a>
 
 If you have any questions, comments, or suggestions, please open an [issue](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/issues/new/choose) or create a [pull request](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/compare)
