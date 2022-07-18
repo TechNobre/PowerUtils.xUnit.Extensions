@@ -6,9 +6,8 @@ namespace PowerUtils.xUnit.Extensions.Tests;
 
 public class NonPublicConstructorTests
 {
-    [Fact(DisplayName = "Try to instance a class with private constructor without parameters - Should returns valid instance of the class")]
-    [Trait("Category", "Non public constructor")]
-    public void PrivateConstructor_WithoutParameters_ValidInstance()
+    [Fact]
+    public void PrivateConstructorWithoutParameters_Create_Instance()
     {
         // Arrange & Act
         var act = ObjectFactory.Create<FakeClassWithNonPubliceConstructor>();
@@ -23,9 +22,8 @@ public class NonPublicConstructorTests
             .Be(21);
     }
 
-    [Fact(DisplayName = "Try to instance a class with non public constructor but the parameters does not match - Should returns an `ConstructorNotFoundException`")]
-    [Trait("Category", "Non public constructor")]
-    public void NonPublicConstructor_ParametersNotMatch_ReturnsException()
+    [Fact]
+    public void NonPublicConstructorWithParametersNotMatch_Create_ConstructorNotFoundException()
     {
         // Arrange & Act
         Action act = () => ObjectFactory.Create<FakeClassWithNonPubliceConstructor>(1, 2, 3);
@@ -37,9 +35,8 @@ public class NonPublicConstructorTests
             .WithMessage("Constructor not found");
     }
 
-    [Fact(DisplayName = "Try to instance a class with protected constructor with properties - Should returns valid instance of the class")]
-    [Trait("Category", "Non public constructor")]
-    public void ProtectedConstructor_WithProperties_ValidInstance()
+    [Fact]
+    public void ProtectedConstructorWithProperties_Create_Instance()
     {
         // Arrange & Act
         var act = ObjectFactory.Create<FakeClassWithNonPubliceConstructor>("Test first name", "Test last name", 50);
@@ -53,9 +50,8 @@ public class NonPublicConstructorTests
             .Be(50);
     }
 
-    [Fact(DisplayName = "Try to instance a class with protected constructor with properties in a different order - Should returns valid instance of the class")]
-    [Trait("Category", "Non public constructor")]
-    public void ProtectedConstructor_PropertiesDifferentOrder_ValidInstance()
+    [Fact]
+    public void ProtectedConstructorWithPropertiesDifferentOrder_Create_Instance()
     {
         // Arrange & Act
         var act = ObjectFactory.Create<FakeClassWithNonPubliceConstructor>(40, "Other first name", "Other last name");
@@ -69,9 +65,8 @@ public class NonPublicConstructorTests
             .Be(40);
     }
 
-    [Fact(DisplayName = "Try to instance a class without non public constructor - Should returns valid instance of the class")]
-    [Trait("Category", "Non public constructor")]
-    public void NonPublicConstructor_NoNonPublicConstructor_ReturnsException()
+    [Fact]
+    public void UnexistentNonPublicConstructor_Create_ConstructorNotFoundException()
     {
         // Arrange & Act
         Action act = () => ObjectFactory.Create<FakeClassWithoutNonPubliceConstructor>();
