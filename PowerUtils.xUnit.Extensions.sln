@@ -7,23 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerUtils.xUnit.Extensions
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerUtils.xUnit.Extensions.Tests", "tests\PowerUtils.xUnit.Extensions.Tests.csproj", "{F6BCC261-5011-4F31-AF21-7EC34D6EA099}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.project", "1.project", "{F9273028-EBDF-4686-AC71-67056DD8A385}"
-	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-		.gitignore = .gitignore
-		CHANGELOG.md = CHANGELOG.md
-		global.json = global.json
-		LICENSE = LICENSE
-		README.md = README.md
-	EndProjectSection
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.src", "1.src", "{27655A6F-567E-4A04-9BFA-F3E3F4CAA188}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.cicd", "2.cicd", "{0119445E-83DE-4DF1-A294-1CD7AD47767C}"
-	ProjectSection(SolutionItems) = preProject
-		.github\dependabot.yml = .github\dependabot.yml
-		.github\workflows\publish-nuget.yml = .github\workflows\publish-nuget.yml
-		.github\workflows\sonarcloud.yml = .github\workflows\sonarcloud.yml
-		.github\workflows\test-project.yml = .github\workflows\test-project.yml
-	EndProjectSection
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.tests", "2.tests", "{BCBFF250-C114-4AEB-A28A-6F26312A4B3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,6 +48,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{186C9A5F-4E0C-4681-A191-734BBA063038} = {27655A6F-567E-4A04-9BFA-F3E3F4CAA188}
+		{F6BCC261-5011-4F31-AF21-7EC34D6EA099} = {BCBFF250-C114-4AEB-A28A-6F26312A4B3C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A4E378ED-92D6-4113-814E-1144CBF7D869}
