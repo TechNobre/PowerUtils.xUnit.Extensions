@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using PowerUtils.xUnit.Extensions.Exceptions;
 using PowerUtils.xUnit.Extensions.Tests.Fakes;
 
@@ -6,11 +7,8 @@ namespace PowerUtils.xUnit.Extensions.Tests;
 
 public class NonPublicMethodTests
 {
-
-
-    [Fact(DisplayName = "Call of a void method of the null type - Should return a 'ArgumentNullException'")]
-    [Trait("Category", "Call private methods")]
-    public void VoidPrivateMethod_NullType_Exception()
+    [Fact]
+    public void VoidPrivateMethodAndNullObject_InvokeNonPublicMethod_ArgumentNullException()
     {
         // Arrange
         FakeClassNonPublicMethods obj = null;
@@ -27,9 +25,8 @@ public class NonPublicMethodTests
             .WithMessage("The 'obj' cannot be null (Parameter 'obj')");
     }
 
-    [Fact(DisplayName = "Call of a method of the null type - Should return a 'ArgumentNullException'")]
-    [Trait("Category", "Call private methods")]
-    public void PrivateMethod_NullType_Exception()
+    [Fact]
+    public void PrivateMethodAndNullObject_InvokeNonPublicMethod_ArgumentNullException()
     {
         // Arrange
         FakeClassNonPublicMethods obj = null;
@@ -46,9 +43,8 @@ public class NonPublicMethodTests
             .WithMessage("The 'obj' cannot be null (Parameter 'obj')");
     }
 
-    [Fact(DisplayName = "Call of a method with parameters and returns a value")]
-    [Trait("Category", "Call private methods")]
-    public void PrivateMethod_WithReturnAndParameters_ReturnsValue()
+    [Fact]
+    public void PrivateMethodWithReturnAndParameters_InvokeNonPublicMethod_ReturnsValue()
     {
         // Arrange
         var obj = new FakeClassNonPublicMethods();
@@ -64,9 +60,8 @@ public class NonPublicMethodTests
             .Be(input * 2);
     }
 
-    [Fact(DisplayName = "Call of a method with parameters and return an exception")]
-    [Trait("Category", "Call private methods")]
-    public void PrivateMethod_WithReturnAndParameters_ReturnsException()
+    [Fact]
+    public void PrivateMethodWithReturnAndParameters_InvokeNonPublicMethod_ReturnsException()
     {
         // Arrange
         var obj = new FakeClassNonPublicMethods();
@@ -83,9 +78,8 @@ public class NonPublicMethodTests
             .WithMessage("Message exception 1_2");
     }
 
-    [Fact(DisplayName = "Call of a method only with returns a value")]
-    [Trait("Category", "Call private methods")]
-    public void PrivateMethod_WithReturn_ReturnsValue()
+    [Fact]
+    public void PrivateMethodWithReturn_InvokeNonPublicMethod_ReturnsValue()
     {
         // Arrange
         var obj = new FakeClassNonPublicMethods();
@@ -100,9 +94,8 @@ public class NonPublicMethodTests
             .Be(101);
     }
 
-    [Fact(DisplayName = "Call of a method only with returns an exception")]
-    [Trait("Category", "Call private methods")]
-    public void PrivateMethod_WithReturn_ReturnsException()
+    [Fact]
+    public void PrivateMethodWithReturn_InvokeNonPublicMethod_ReturnsException()
     {
         // Arrange
         var obj = new FakeClassNonPublicMethods();
@@ -118,9 +111,8 @@ public class NonPublicMethodTests
             .WithMessage("Message exception 2_2");
     }
 
-    [Fact(DisplayName = "Call of a method with parameters and without returns")]
-    [Trait("Category", "Call private methods")]
-    public void PrivateMethod_WithParameters_WithoutReturn()
+    [Fact]
+    public void PrivateMethodWithParameters_InvokeNonPublicMethod_WithoutReturn()
     {
         // Arrange
         var obj = new FakeClassNonPublicMethods();
@@ -131,9 +123,8 @@ public class NonPublicMethodTests
         obj.InvokeNonPublicMethod("_method31", input);
     }
 
-    [Fact(DisplayName = "Call of a method with parameters and return an exception")]
-    [Trait("Category", "Call private methods")]
-    public void PrivateMethod_WithParameters_ReturnsException()
+    [Fact]
+    public void PrivateMethodWithParameters_InvokeNonPublicMethod_ReturnsException()
     {
         // Arrange
         var obj = new FakeClassNonPublicMethods();
@@ -150,9 +141,8 @@ public class NonPublicMethodTests
             .WithMessage("Message exception 3_2");
     }
 
-    [Fact(DisplayName = "Call of a method without parameters and without returns")]
-    [Trait("Category", "Call private methods")]
-    public void PrivateMethod_WithoutParametersAndRetun_OnlyCall()
+    [Fact]
+    public void PrivateMethodWithoutParametersAndRetun_InvokeNonPublicMethod_OnlyCall()
     {
         // Arrange
         var obj = new FakeClassNonPublicMethods();
@@ -162,9 +152,8 @@ public class NonPublicMethodTests
         obj.InvokeNonPublicMethod("_method41");
     }
 
-    [Fact(DisplayName = "Call of a method without parameters and returns an exception")]
-    [Trait("Category", "Call private methods")]
-    public void PrivateMethod_WithoutParametersAndRetun_ReturnsException()
+    [Fact]
+    public void PrivateMethodWithoutParametersAndRetun_InvokeNonPublicMethod_ArgumentException()
     {
         // Arrange
         var obj = new FakeClassNonPublicMethods();
@@ -180,9 +169,8 @@ public class NonPublicMethodTests
             .WithMessage("Message exception 4_2");
     }
 
-    [Fact(DisplayName = "Try calling an unexisting method without parameters and without returns - Should return MethodNotFoundException")]
-    [Trait("Category", "Call private methods")]
-    public void PrivateMethod_UnexistingMethodWithoutParametersAndRetun_ReturnsMethodNotFoundException()
+    [Fact]
+    public void PrivateMethodUnexistingMethodWithoutParametersAndRetun_InvokeNonPublicMethod_MethodNotFoundException()
     {
         // Arrange
         var obj = new FakeClassNonPublicMethods();
@@ -198,9 +186,8 @@ public class NonPublicMethodTests
             .WithMessage("'_method_unexisting_1' not found");
     }
 
-    [Fact(DisplayName = "Try calling an unexisting method without returns - Should return MethodNotFoundException")]
-    [Trait("Category", "Call private methods")]
-    public void PrivateMethod_UnexistingMethodWitRetun_ReturnsMethodNotFoundException()
+    [Fact]
+    public void PrivateMethodUnexistingMethodWitRetun_InvokeNonPublicMethod_MethodNotFoundException()
     {
         // Arrange
         var obj = new FakeClassNonPublicMethods();
@@ -216,11 +203,8 @@ public class NonPublicMethodTests
             .WithMessage("'_method_unexisting_1' not found");
     }
 
-
-
-    [Fact(DisplayName = "Call of a async method with parameters and returns a value")]
-    [Trait("Category", "Call private methods")]
-    public void PrivateAsyncMethod_WithReturnAndParameters_ReturnsValue()
+    [Fact]
+    public void PrivateAsyncMethodWithReturnAndParameters_InvokeNonPublicMethodAsync_ReturnsValue()
     {
         // Arrange
         var obj = new FakeClassNonPublicMethods();
@@ -238,9 +222,8 @@ public class NonPublicMethodTests
             .Be(input * 2);
     }
 
-    [Fact(DisplayName = "Call of a async method with parameters and return an exception")]
-    [Trait("Category", "Call private methods")]
-    public void PrivateAsyncMethod_WithReturnAndParameters_ReturnsException()
+    [Fact]
+    public async Task PrivateAsyncMethodWithReturnAndParameters_InvokeNonPublicMethodAsync_ArgumentException()
     {
         // Arrange
         var obj = new FakeClassNonPublicMethods();
@@ -248,15 +231,10 @@ public class NonPublicMethodTests
 
 
         // Act
-        Exception act = null;
-        try
-        {
-            _ = obj.InvokeNonPublicMethodAsync<int>("_method52Async", input).Result;
-        }
-        catch(AggregateException exception)
-        {
-            act = exception.InnerExceptions[0];
-        }
+        var act = await Record.ExceptionAsync(async () =>
+            await obj.InvokeNonPublicMethodAsync<int>("_method52Async", input)
+        );
+
 
         // Assert
         act.Should()
@@ -266,8 +244,7 @@ public class NonPublicMethodTests
             .Be("Message exception 5_2");
     }
 
-    [Fact(DisplayName = "Call of a async method without parameters and without returns")]
-    [Trait("Category", "Call private methods")]
+    [Fact]
     public void PrivateAsyncMethod_WithoutParametersAndRetun_OnlyCall()
     {
         // Arrange
@@ -278,24 +255,17 @@ public class NonPublicMethodTests
         obj.InvokeNonPublicMethodAsync("_method61Async").Wait();
     }
 
-    [Fact(DisplayName = "Call of a async method without parameters and returns an exception")]
-    [Trait("Category", "Call private methods")]
-    public void PrivateAsyncMethod_WithoutParametersAndRetun_ReturnsException()
+    [Fact]
+    public async Task PrivateAsyncMethodWithoutParametersAndRetun_InvokeNonPublicMethodAsync_ArgumentException()
     {
         // Arrange
         var obj = new FakeClassNonPublicMethods();
 
 
         // Act
-        Exception act = null;
-        try
-        {
-            obj.InvokeNonPublicMethodAsync("_method62Async").Wait();
-        }
-        catch(AggregateException exception)
-        {
-            act = exception.InnerExceptions[0];
-        }
+        var act = await Record.ExceptionAsync(async () =>
+            await obj.InvokeNonPublicMethodAsync("_method62Async")
+        );
 
 
         // Assert
@@ -306,25 +276,17 @@ public class NonPublicMethodTests
             .Be("Message exception 6_2");
     }
 
-
-    [Fact(DisplayName = "Try calling a method is not async with utils 'InvokePrivateMethodAsync' - Should returns 'CallMethodException'")]
-    [Trait("Category", "Call private methods")]
-    public void PrivateAsyncMethod_CallWithAsyncInvoke_ReturnsException1()
+    [Fact]
+    public async Task PrivateAsyncMethod_InvokeNonPublicMethodAsync_CallMethodException()
     {
         // Arrange
         var obj = new FakeClassNonPublicMethods();
 
 
         // Act
-        Exception act = null;
-        try
-        {
-            obj.InvokeNonPublicMethodAsync("_method41").Wait();
-        }
-        catch(AggregateException exception)
-        {
-            act = exception.InnerExceptions[0];
-        }
+        var act = await Record.ExceptionAsync(async () =>
+            await obj.InvokeNonPublicMethodAsync("_method41")
+        );
 
 
         // Assert
@@ -335,42 +297,28 @@ public class NonPublicMethodTests
             .Be("It was not possible to call the method '_method41'");
     }
 
-    [Fact(DisplayName = "Try calling a method is not async with utils 'InvokePrivateMethodAsync' - Should returns 'CallMethodException'")]
-    [Trait("Category", "Call private methods")]
-    public void PrivateAsyncMethod_CallWithAsyncInvoke_ReturnsException2()
+    [Fact]
+    public async Task PrivateAsyncMethod_InvokeNonPublicMethodAsync_ReturnsException2()
     {
         // Arrange
         var obj = new FakeClassNonPublicMethods();
 
 
         // Act
-        Exception act = null;
-        try
-        {
-            var response = obj.InvokeNonPublicMethodAsync<bool>("_method41")
-                .GetAwaiter().GetResult();
-        }
-        catch(AggregateException exception)
-        {
-            act = exception.InnerExceptions[0];
-        }
-        catch(CallMethodException exception)
-        {
-            act = exception;
-        }
+        var act = await Record.ExceptionAsync(async () =>
+             await obj.InvokeNonPublicMethodAsync<bool>("_method41")
+        );
 
 
         // Assert
         act.Should()
             .BeOfType<CallMethodException>();
-
         act.Message.Should()
             .Be("It was not possible to call the method '_method41'");
     }
 
-    [Fact(DisplayName = "Call of a method only with returns a value")]
-    [Trait("Category", "Call protected methods")]
-    public void ProtectedMethod_WithReturn_ReturnsValue()
+    [Fact]
+    public void ProtectedMethodWithReturn_InvokeNonPublicMethod_ReturnsValue()
     {
         // Arrange
         var obj = new FakeClassNonPublicMethods();

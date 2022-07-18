@@ -6,7 +6,7 @@ using PowerUtils.xUnit.Extensions.Exceptions;
 namespace PowerUtils.xUnit.Extensions
 {
     public static class NonPublicPropertyExtensions
-    { // DONE
+    {
         /// <summary>
         /// Set a property with private set
         /// </summary>
