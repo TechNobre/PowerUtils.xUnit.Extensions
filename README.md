@@ -12,20 +12,11 @@
 [![License: MIT](https://img.shields.io/github/license/TechNobre/PowerUtils.xUnit.Extensions.svg)](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/blob/main/LICENSE)
 
 
-
-
-## Support to
-- .NET 2.0 or more
-- .NET Framework 4.6.2 or more
-- .NET Standard 2.1 or more
-
-
-
-
-## Features
-
-- [Installation](#Installation)
-- [Extensions](#Extensions)
+- [Support](#support-to)
+- [Dependencies](#dependencies)
+- [How to use](#how-to-use)
+  - [Installation](#Installation)
+  - [Extensions](#Extensions)
   - [InvokeNonPublicMethod](#object.InvokeNonPublicMethod)
   - [SetNonPublicProperty and SetNonPublicField](#object.SetNonPublicProperty)
 - [Helpers](#Helpers)
@@ -33,18 +24,28 @@
   - [InvokeStaticNonPublicMethod](#InvokeStaticNonPublicMethod)
 - [Factories](#Factories)
   - [ObjectFactory](#Factories-ObjectFactory)
+- [Contribution](#contribution)
+- [License](./LICENSE)
+- [Changelog](./CHANGELOG.md)
 
 
-## Documentation
 
-### Dependencies
+## Support to <a name="support-to"></a>
+- .NET 2.0 or more
+- .NET Framework 4.6.2 or more
+- .NET Standard 2.1 or more
+
+
+
+## Dependencies <a name="dependencies"></a>
 
 - xunit.extensibility.core [NuGet](https://www.nuget.org/packages/xunit.extensibility.core/)
 
 
-### How to use
 
-#### Install NuGet package <a name="Installation"></a>
+## How to use <a name="how-to-use"></a>
+
+### Install NuGet package <a name="Installation"></a>
 This package is available through Nuget Packages: https://www.nuget.org/packages/PowerUtils.xUnit.Extensions
 
 **Nuget**
@@ -229,20 +230,6 @@ The methods `SetPrivateProperty`, `SetPrivateField`, `InvokePrivateMethod`, `Inv
 
 
 
+## Contribution <a name="contribution"></a>
 
-## Contribution
-
-*Help me to help others*
-
-
-
-
-## LICENSE
-
-[MIT](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/blob/main/LICENSE)
-
-
-
-## Changelog
-
-[Here](./CHANGELOG.md)
+If you have any questions, comments, or suggestions, please open an [issue](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/issues/new/choose) or create a [pull request](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/compare)
