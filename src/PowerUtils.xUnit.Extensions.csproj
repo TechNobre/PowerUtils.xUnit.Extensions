@@ -6,9 +6,9 @@
 
     <!-- Assembly and projecto details -->
     <!-- https://docs.microsoft.com/en-us/dotnet/standard/frameworks -->
-    <TargetFrameworks>net6.0;net5.0;netstandard2.0;netstandard2.1;net462;net48;netcoreapp3.1</TargetFrameworks>
+    <TargetFrameworks>net6.0;net5.0;netcoreapp3.1;netstandard2.0;netstandard2.1;net462;net48</TargetFrameworks>
 
-    
+
     <RootNamespace>PowerUtils.xUnit.Extensions</RootNamespace>
     <AssemblyName>PowerUtils.xUnit.Extensions</AssemblyName>
 

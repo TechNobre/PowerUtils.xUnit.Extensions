@@ -1,29 +1,30 @@
-﻿namespace PowerUtils.xUnit.Extensions.Tests.Fakes;
-
-public class FakeClassWithNonPubliceConstructor
+﻿namespace PowerUtils.xUnit.Extensions.Tests.Fakes
 {
-    public string FirstName { get; private set; }
-    public string LasttName { get; private set; }
-    public int Age { get; private set; }
-
-    private FakeClassWithNonPubliceConstructor()
+    public class FakeClassWithNonPubliceConstructor
     {
-        FirstName = "Fake first name";
-        LasttName = "Fake last name";
-        Age = 21;
-    }
+        public string FirstName { get; private set; }
+        public string LasttName { get; private set; }
+        public int Age { get; private set; }
 
-    protected FakeClassWithNonPubliceConstructor(string firstName, string lastName, int age)
-    {
-        FirstName = firstName;
-        LasttName = lastName;
-        Age = age;
-    }
+        private FakeClassWithNonPubliceConstructor()
+        {
+            FirstName = "Fake first name";
+            LasttName = "Fake last name";
+            Age = 21;
+        }
 
-    private FakeClassWithNonPubliceConstructor(int age, string firstName, string lastName)
-    {
-        FirstName = firstName;
-        LasttName = lastName;
-        Age = age;
+        protected FakeClassWithNonPubliceConstructor(string firstName, string lastName, int age)
+        {
+            FirstName = firstName;
+            LasttName = lastName;
+            Age = age;
+        }
+
+        private FakeClassWithNonPubliceConstructor(int age, string firstName, string lastName)
+        {
+            FirstName = firstName;
+            LasttName = lastName;
+            Age = age;
+        }
     }
 }
