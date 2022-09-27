@@ -19,7 +19,7 @@ namespace PowerUtils.xUnit.Extensions
         /// <exception cref="ArgumentNullException">When the <paramref name="obj">obj</paramref> is null</exception>
         public static TResult InvokeNonPublicMethod<TResult>(this object obj, string methodName, params object[] parameters)
         {
-            if(obj == null)
+            if(obj is null)
             {
                 throw new ArgumentNullException(nameof(obj), $"The '{nameof(obj)}' cannot be null");
             }
@@ -27,7 +27,7 @@ namespace PowerUtils.xUnit.Extensions
             var objType = obj.GetType();
             var methodInfo = objType.GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Instance);
 
-            if(methodInfo == null)
+            if(methodInfo is null)
             {
                 throw new MethodNotFoundException(methodName);
             }
@@ -53,7 +53,7 @@ namespace PowerUtils.xUnit.Extensions
         /// <exception cref="ArgumentNullException">When the <paramref name="obj">obj</paramref> is null</exception>
         public static void InvokeNonPublicMethod(this object obj, string methodName, params object[] parameters)
         {
-            if(obj == null)
+            if(obj is null)
             {
                 throw new ArgumentNullException(nameof(obj), $"The '{nameof(obj)}' cannot be null");
             }
@@ -61,7 +61,7 @@ namespace PowerUtils.xUnit.Extensions
             var objType = obj.GetType();
             var methodInfo = objType.GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Instance);
 
-            if(methodInfo == null)
+            if(methodInfo is null)
             {
                 throw new MethodNotFoundException(methodName);
             }
@@ -89,7 +89,7 @@ namespace PowerUtils.xUnit.Extensions
         /// <exception cref="ArgumentNullException">When the <paramref name="obj">obj</paramref> is null</exception>
         public static async Task<TResult> InvokeNonPublicMethodAsync<TResult>(this object obj, string methodName, params object[] parameters)
         {
-            if(obj == null)
+            if(obj is null)
             {
                 throw new ArgumentNullException(nameof(obj), $"The '{nameof(obj)}' cannot be null");
             }
@@ -97,7 +97,7 @@ namespace PowerUtils.xUnit.Extensions
             var objType = obj.GetType();
             var methodInfo = objType.GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Instance);
 
-            if(methodInfo == null)
+            if(methodInfo is null)
             {
                 throw new MethodNotFoundException(methodName);
             }
@@ -105,7 +105,7 @@ namespace PowerUtils.xUnit.Extensions
             try
             {
                 var response = (Task<TResult>)methodInfo.Invoke(obj, parameters);
-                if(response == null)
+                if(response is null)
                 {
                     throw new CallMethodException(methodName);
                 }
@@ -129,7 +129,7 @@ namespace PowerUtils.xUnit.Extensions
         /// <exception cref="ArgumentNullException">When the <paramref name="obj">obj</paramref> is null</exception>
         public static async Task InvokeNonPublicMethodAsync(this object obj, string methodName, params object[] parameters)
         {
-            if(obj == null)
+            if(obj is null)
             {
                 throw new ArgumentNullException(nameof(obj), $"The '{nameof(obj)}' cannot be null");
             }
@@ -137,7 +137,7 @@ namespace PowerUtils.xUnit.Extensions
             var objType = obj.GetType();
             var methodInfo = objType.GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Instance);
 
-            if(methodInfo == null)
+            if(methodInfo is null)
             {
                 throw new MethodNotFoundException(methodName);
             }
@@ -145,7 +145,7 @@ namespace PowerUtils.xUnit.Extensions
             try
             {
                 var response = (Task)methodInfo.Invoke(obj, parameters);
-                if(response == null)
+                if(response is null)
                 {
                     throw new CallMethodException(methodName);
                 }

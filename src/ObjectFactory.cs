@@ -14,7 +14,7 @@ namespace PowerUtils.xUnit.Extensions
             while(true)
             {
                 currectConstructor = constructorList.FirstOrDefault();
-                if(currectConstructor == null)
+                if(currectConstructor is null)
                 {
                     // Returns null when not found any valid constructor,
                     // when does not have any non public constructor or all constructor does not match with `inputParameters`
@@ -58,7 +58,7 @@ namespace PowerUtils.xUnit.Extensions
             }
 
             // When it gets here and it's `null`, it's because no valid constructor was found
-            if(currectConstructor == null)
+            if(currectConstructor is null)
             {
                 throw new ConstructorNotFoundException();
             }
