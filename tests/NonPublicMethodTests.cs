@@ -206,7 +206,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
         }
 
         [Fact]
-        public void PrivateAsyncMethodWithReturnAndParameters_InvokeNonPublicMethodAsync_ReturnsValue()
+        public async Task PrivateAsyncMethodWithReturnAndParameters_InvokeNonPublicMethodAsync_ReturnsValue()
         {
             // Arrange
             var obj = new FakeClassNonPublicMethods();
@@ -214,9 +214,7 @@ namespace PowerUtils.xUnit.Extensions.Tests
 
 
             // Act
-            var act = obj
-                .InvokeNonPublicMethodAsync<int>("_method51Async", input)
-                .Result;
+            var act = await obj.InvokeNonPublicMethodAsync<int>("_method51Async", input);
 
 
             // Assert
@@ -247,15 +245,155 @@ namespace PowerUtils.xUnit.Extensions.Tests
         }
 
         [Fact]
-        public void PrivateAsyncMethod_WithoutParametersAndRetun_OnlyCall()
+        public async Task NullObject_InvokeNonPublicMethodAsync_ArgumentNullException()
+        {
+            // Arrange
+            FakeClassNonPublicMethods obj = null;
+            var input = 32;
+
+
+            // Act
+            var act = await Record.ExceptionAsync(async () =>
+                await obj.InvokeNonPublicMethodAsync<int>("_method52Async", input)
+            );
+
+
+            // Assert
+            act.Should()
+                .BeOfType<ArgumentNullException>();
+            act.Message.Should()
+                .Be("The 'obj' cannot be null (Parameter 'obj')");
+        }
+
+        [Fact]
+        public async Task NonexistentMethod_InvokeNonPublicMethodAsync_MethodNotFoundException()
+        {
+            // Arrange
+            var obj = new FakeClassNonPublicMethods();
+            var input = 32;
+
+
+            // Act
+            var act = await Record.ExceptionAsync(async () =>
+                await obj.InvokeNonPublicMethodAsync<int>("hhhh", input)
+            );
+
+
+            // Assert
+            act.Should()
+                .BeOfType<MethodNotFoundException>();
+            act.Message.Should()
+                .Be("'hhhh' not found");
+        }
+
+        [Fact]
+        public async Task MethodWithInternalException_InvokeNonPublicMethodAsync_MethodNotFoundException()
         {
             // Arrange
             var obj = new FakeClassNonPublicMethods();
 
 
-            // Act & Assert
-            obj.InvokeNonPublicMethodAsync("_method61Async").Wait();
+            // Act
+            var act = await Record.ExceptionAsync(async () =>
+                await obj.InvokeNonPublicMethodAsync<int>("_funcWithException")
+            );
+
+
+            // Assert
+            act.Should()
+                .BeOfType<FakeException>();
         }
+
+        [Fact]
+        public async Task PrivateAsyncMethod_WithoutParametersAndReturn_Null()
+        {
+            // Arrange
+            var obj = new FakeClassNonPublicMethods();
+            obj.Prop61 = false;
+
+
+            // Act
+            await obj.InvokeNonPublicMethodAsync("_method61Async");
+
+
+            // Assert
+            obj.Prop61.Should()
+                .BeTrue();
+        }
+
+        [Fact]
+        public async Task Null_WithoutParametersAndReturn_ArgumentNullException()
+        {
+            // Arrange
+            FakeClassNonPublicMethods obj = null;
+
+
+            // Act
+            var act = await Record.ExceptionAsync(async () =>
+                await obj.InvokeNonPublicMethodAsync("_method61Async")
+            );
+
+
+            // Assert
+            act.Should()
+                .BeOfType<ArgumentNullException>();
+            act.Message.Should()
+                .Be("The 'obj' cannot be null (Parameter 'obj')");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        [Fact]
+        public async Task NonexistentMethod_WithoutParametersAndReturn_MethodNotFoundException()
+        {
+            // Arrange
+            var obj = new FakeClassNonPublicMethods();
+
+
+            // Act
+            var act = await Record.ExceptionAsync(async () =>
+                await obj.InvokeNonPublicMethodAsync("fsdfsd")
+            );
+
+
+            // Assert
+            act.Should()
+                .BeOfType<MethodNotFoundException>();
+            act.Message.Should()
+                .Be("'fsdfsd' not found");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         [Fact]
         public async Task PrivateAsyncMethodWithoutParametersAndRetun_InvokeNonPublicMethodAsync_ArgumentException()
