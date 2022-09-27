@@ -235,10 +235,52 @@ namespace PowerUtils.xUnit.Extensions.Tests
         }
 
         [Fact]
-        public void PrivateAsyncMethodWithoutParametersAndRetun_InvokeAsync_OnlyCall()
-            // Arrange & Act & Assert
-            => ObjectInvoker
-                .InvokeAsync(typeof(FakeStaticClass), "_method61Async").Wait();
+        public async Task PrivateAsyncMethodWithoutParametersAndRetun_InvokeAsync_PropShouldChangeToTrue()
+        {
+            // Arrange
+            FakeStaticClass.Prop61 = false;
+
+
+            // Act
+            await ObjectInvoker.InvokeAsync(typeof(FakeStaticClass), "_method61Async");
+
+
+            // Assert
+            FakeStaticClass.Prop61
+                .Should().BeTrue();
+        }
+
+        [Fact]
+        public async Task Null_InvokeAsync_ArgumentNullException()
+        {
+            // Arrange & Act
+            var act = await Record.ExceptionAsync(async () => await ObjectInvoker
+                .InvokeAsync(null, "_method61Async")
+            );
+
+
+            // Assert
+            act.Should()
+                .BeOfType<ArgumentNullException>();
+            act.Message.Should()
+                .Be("The 'obj' cannot be null (Parameter 'obj')");
+        }
+
+        [Fact]
+        public async Task NonexistentMethod_InvokeAsync_MethodNotFoundException()
+        {
+            // Arrange & Act
+            var act = await Record.ExceptionAsync(async () => await ObjectInvoker
+                .InvokeAsync(typeof(FakeStaticClass), "fakerrr")
+            );
+
+
+            // Assert
+            act.Should()
+                .BeOfType<MethodNotFoundException>();
+            act.Message.Should()
+                .Be("'fakerrr' not found");
+        }
 
         [Fact]
         public async Task PrivateAsyncMethodWithoutParametersAndRetun_InvokeAsync_ArgumentException()
@@ -273,6 +315,20 @@ namespace PowerUtils.xUnit.Extensions.Tests
         }
 
         [Fact]
+        public async Task PrivateMethodWithReturnAndInternalException_InvokeAsync_FakeException()
+        {
+            // Arrange & Act
+            var act = await Record.ExceptionAsync(async () =>
+                await ObjectInvoker.InvokeAsync<bool>(typeof(FakeStaticClass), "_funcWithException")
+            );
+
+
+            // Assert
+            act.Should()
+                .BeOfType<FakeException>();
+        }
+
+        [Fact]
         public async Task PrivateAsyncMethodWithReturn_InvokeAsync_CallMethodException()
         {
             // Arrange & Act
@@ -286,6 +342,52 @@ namespace PowerUtils.xUnit.Extensions.Tests
                 .BeOfType<CallMethodException>();
             act.Message.Should()
                 .Be("It was not possible to call the method '_method41'");
+        }
+
+        [Fact]
+        public async Task NullType_InvokeAsync_ArgumentNullException()
+        {
+            // Arrange & Act
+            var act = await Record.ExceptionAsync(async () =>
+                await ObjectInvoker.InvokeAsync<bool>(null, "_method41")
+            );
+
+
+            // Assert
+            act.Should()
+                .BeOfType<ArgumentNullException>();
+            act.Message.Should()
+                .Be("The 'obj' cannot be null (Parameter 'obj')");
+        }
+
+        [Fact]
+        public async Task NonexistentMethod_InvokeAsync_ArgumentNullException()
+        {
+            // Arrange & Act
+            var act = await Record.ExceptionAsync(async () =>
+                await ObjectInvoker.InvokeAsync<bool>(typeof(FakeStaticClass), "fakeMethod")
+            );
+
+
+            // Assert
+            act.Should()
+                .BeOfType<MethodNotFoundException>();
+            act.Message.Should()
+                .Be("'fakeMethod' not found");
+        }
+
+        [Fact]
+        public async Task MethodWithInternalException_InvokeAsyncWithReturn_FakeException()
+        {
+            // Arrange & Act
+            var act = await Record.ExceptionAsync(async () =>
+                await ObjectInvoker.InvokeAsync<bool>(typeof(FakeStaticClass), "_methodWithException")
+            );
+
+
+            // Assert
+            act.Should()
+                .BeOfType<FakeException>();
         }
     }
 }
