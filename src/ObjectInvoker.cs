@@ -19,14 +19,14 @@ namespace PowerUtils.xUnit.Extensions
         /// <exception cref="ArgumentNullException">When the <paramref name="obj">obj</paramref> is null</exception>
         public static TResult Invoke<TResult>(Type obj, string methodName, params object[] parameters)
         {
-            if(obj == null)
+            if(obj is null)
             {
                 throw new ArgumentNullException(nameof(obj), $"The '{nameof(obj)}' cannot be null");
             }
 
             var methodInfo = obj.GetMethod(methodName, BindingFlags.Static | BindingFlags.NonPublic);
 
-            if(methodInfo == null)
+            if(methodInfo is null)
             {
                 throw new MethodNotFoundException(methodName);
             }
@@ -52,14 +52,14 @@ namespace PowerUtils.xUnit.Extensions
         /// <exception cref="ArgumentNullException">When the <paramref name="obj">obj</paramref> is null</exception>
         public static void Invoke(Type obj, string methodName, params object[] parameters)
         {
-            if(obj == null)
+            if(obj is null)
             {
                 throw new ArgumentNullException(nameof(obj), $"The '{nameof(obj)}' cannot be null");
             }
 
             var methodInfo = obj.GetMethod(methodName, BindingFlags.Static | BindingFlags.NonPublic);
 
-            if(methodInfo == null)
+            if(methodInfo is null)
             {
                 throw new MethodNotFoundException(methodName);
             }
@@ -87,14 +87,14 @@ namespace PowerUtils.xUnit.Extensions
         /// <exception cref="ArgumentNullException">When the <paramref name="obj">obj</paramref> is null</exception>
         public static async Task<TResult> InvokeAsync<TResult>(Type obj, string methodName, params object[] parameters)
         {
-            if(obj == null)
+            if(obj is null)
             {
                 throw new ArgumentNullException(nameof(obj), $"The '{nameof(obj)}' cannot be null");
             }
 
             var methodInfo = obj.GetMethod(methodName, BindingFlags.Static | BindingFlags.NonPublic);
 
-            if(methodInfo == null)
+            if(methodInfo is null)
             {
                 throw new MethodNotFoundException(methodName);
             }
@@ -102,7 +102,7 @@ namespace PowerUtils.xUnit.Extensions
             try
             {
                 var response = (Task<TResult>)methodInfo.Invoke(obj, parameters);
-                if(response == null)
+                if(response is null)
                 {
                     throw new CallMethodException(methodName);
                 }
@@ -126,14 +126,14 @@ namespace PowerUtils.xUnit.Extensions
         /// <exception cref="ArgumentNullException">When the <paramref name="obj">obj</paramref> is null</exception>
         public static async Task InvokeAsync(Type obj, string methodName, params object[] parameters)
         {
-            if(obj == null)
+            if(obj is null)
             {
                 throw new ArgumentNullException(nameof(obj), $"The '{nameof(obj)}' cannot be null");
             }
 
             var methodInfo = obj.GetMethod(methodName, BindingFlags.Static | BindingFlags.NonPublic);
 
-            if(methodInfo == null)
+            if(methodInfo is null)
             {
                 throw new MethodNotFoundException(methodName);
             }
@@ -141,7 +141,7 @@ namespace PowerUtils.xUnit.Extensions
             try
             {
                 var response = (Task)methodInfo.Invoke(obj, parameters);
-                if(response == null)
+                if(response is null)
                 {
                     throw new CallMethodException(methodName);
                 }

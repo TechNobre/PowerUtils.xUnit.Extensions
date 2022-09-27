@@ -46,7 +46,7 @@ namespace PowerUtils.xUnit.Extensions
             var propertyInfo = source.GetType()
                 .GetProperty(propertyName, BindingFlags.Instance | BindingFlags.NonPublic);
 
-            if(propertyInfo == null)
+            if(propertyInfo is null)
             {
                 throw new PropertyNotFoundException(propertyName);
             }
@@ -72,7 +72,7 @@ namespace PowerUtils.xUnit.Extensions
             var fieldInfo = source.GetType()
                 .GetField(fieldName, BindingFlags.Instance | BindingFlags.NonPublic);
 
-            if(fieldInfo == null)
+            if(fieldInfo is null)
             {
                 throw new FieldNotFoundException(fieldName);
             }
