@@ -5,7 +5,12 @@
 ***Utils, helpers and extensions to create tests with xUnit***
 
 ![Tests](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/actions/workflows/tests.yml/badge.svg)
+[![Mutation tests](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2FTechNobre%2FPowerUtils.xUnit.Extensions%2Fmain)](https://dashboard.stryker-mutator.io/reports/github.com/TechNobre/PowerUtils.xUnit.Extensions/main)
+
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=TechNobre_PowerUtils.xUnit.Extensions&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=TechNobre_PowerUtils.xUnit.Extensions)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=TechNobre_PowerUtils.xUnit.Extensions&metric=coverage)](https://sonarcloud.io/summary/new_code?id=TechNobre_PowerUtils.xUnit.Extensions)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=TechNobre_PowerUtils.xUnit.Extensions&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=TechNobre_PowerUtils.xUnit.Extensions)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=TechNobre_PowerUtils.xUnit.Extensions&metric=bugs)](https://sonarcloud.io/summary/new_code?id=TechNobre_PowerUtils.xUnit.Extensions)
 
 [![NuGet](https://img.shields.io/nuget/v/PowerUtils.xUnit.Extensions.svg)](https://www.nuget.org/packages/PowerUtils.xUnit.Extensions)
 [![Nuget](https://img.shields.io/nuget/dt/PowerUtils.xUnit.Extensions.svg)](https://www.nuget.org/packages/PowerUtils.xUnit.Extensions)
@@ -17,13 +22,13 @@
 - [How to use](#how-to-use)
   - [Installation](#Installation)
   - [Extensions](#Extensions)
-  - [InvokeNonPublicMethod](#object.InvokeNonPublicMethod)
-  - [SetNonPublicProperty and SetNonPublicField](#object.SetNonPublicProperty)
-- [Helpers](#Helpers)
-  - [Sort tests by priority](#SortTestsByPriority)
-  - [InvokeStaticNonPublicMethod](#InvokeStaticNonPublicMethod)
-- [Factories](#Factories)
-  - [ObjectFactory](#Factories-ObjectFactory)
+    - [InvokeNonPublicMethod](#object.InvokeNonPublicMethod)
+    - [SetNonPublicProperty and SetNonPublicField](#object.SetNonPublicProperty)
+  - [Helpers](#Helpers)
+    - [Sort tests by priority](#SortTestsByPriority)
+    - [InvokeStaticNonPublicMethod](#InvokeStaticNonPublicMethod)
+  - [Factories](#Factories)
+    - [ObjectFactory](#Factories-ObjectFactory)
 - [Contribution](#contribution)
 - [License](./LICENSE)
 - [Changelog](./CHANGELOG.md)
@@ -31,7 +36,7 @@
 
 
 ## Support to <a name="support-to"></a>
-- .NET 2.0 or more
+- .NET 6.0, .NET 5.0, .NET 3.1
 - .NET Framework 4.6.2 or more
 - .NET Standard 2.1 or more
 
