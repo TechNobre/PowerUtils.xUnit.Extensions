@@ -1,3 +1,11 @@
+## [3.0.1](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/compare/v3.0.0...v3.0.1) (2022-09-28)
+
+
+### Reverts
+
+* Revert "test: Fixed test project for sonar scan" ([7072054](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/commit/7072054c2b7671fca35f48f50c9b1f26d0026be0))
+* Revert "ci: Envs in workflow for tests workflow" ([fabdd69](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/commit/fabdd69d6483cd84982f1262fb31868316d1440e))
+
 # [3.0.0](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/compare/v2.2.0...v3.0.0) (2022-07-18)
 
 
