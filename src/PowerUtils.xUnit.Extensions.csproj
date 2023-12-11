@@ -90,7 +90,7 @@
 
 
   <ItemGroup>
-    <PackageReference Include="xunit.extensibility.core" Version="2.6.2" />
+    <PackageReference Include="xunit.extensibility.core" Version="2.6.3" />
   </ItemGroup>
 
 
