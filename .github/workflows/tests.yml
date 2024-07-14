@@ -11,7 +11,9 @@ on:
 
 
 env:
-  SDK_VERSION_6: '6.0.420'
+  SDK_VERSION_8: '8.0.303'
+  SDK_VERSION_7: '7.0.410'
+  SDK_VERSION_6: '6.0.424'
   SDK_VERSION_5: '5.0.408'
   SDK_VERSION_3: '3.1.426'
   TEST_RESULTS_DIRECTORY: './TestResults'
@@ -36,6 +38,8 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: |
+          ${{ env.SDK_VERSION_8 }}
+          ${{ env.SDK_VERSION_7 }}
           ${{ env.SDK_VERSION_6 }}
           ${{ env.SDK_VERSION_5 }}
           ${{ env.SDK_VERSION_3 }}
