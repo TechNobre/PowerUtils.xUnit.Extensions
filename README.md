@@ -16,40 +16,42 @@
 [![License: MIT](https://img.shields.io/github/license/TechNobre/PowerUtils.xUnit.Extensions.svg)](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/blob/main/LICENSE)
 
 
-- [Support](#support-to)
+- [Support to](#support-to)
 - [Dependencies](#dependencies)
 - [How to use](#how-to-use)
-  - [Installation](#Installation)
-  - [Extensions](#Extensions)
-    - [InvokeNonPublicMethod](#object.InvokeNonPublicMethod)
-    - [SetNonPublicProperty and SetNonPublicField](#object.SetNonPublicProperty)
-  - [Helpers](#Helpers)
-    - [Sort tests by priority](#SortTestsByPriority)
-    - [InvokeStaticNonPublicMethod](#InvokeStaticNonPublicMethod)
-  - [Factories](#Factories)
-    - [ObjectFactory](#Factories-ObjectFactory)
+  - [Install NuGet package](#install-nuget-package)
+  - [Extensions](#extensions)
+    - [object.InvokeNonPublicMethod();](#objectinvokenonpublicmethod)
+    - [object.SetNonPublicProperty(); and object.SetNonPublicField()](#objectsetnonpublicproperty-and-objectsetnonpublicfield)
+  - [Helpers](#helpers)
+    - [Sort tests by priority](#sort-tests-by-priority)
+    - [InvokeStaticNonPublicMethod](#invokestaticnonpublicmethod)
+  - [Factories](#factories)
+    - [ObjectFactory](#objectfactory)
 - [Contribution](#contribution)
-- [License](./LICENSE)
-- [Changelog](./CHANGELOG.md)
 
 
 
-## Support to <a name="support-to"></a>
-- .NET 6.0, .NET 5.0, .NET 3.1
+## Support to<a name="support-to"></a>
+- .NET 8.0
+- .NET 7.0
+- .NET 6.0
+- .NET 5.0
+- .NET 3.1
+- .NET Standard 2.1
 - .NET Framework 4.6.2 or more
-- .NET Standard 2.1 or more
 
 
 
-## Dependencies <a name="dependencies"></a>
+## Dependencies<a name="dependencies"></a>
 
 - xunit.extensibility.core [NuGet](https://www.nuget.org/packages/xunit.extensibility.core/)
 
 
 
-## How to use <a name="how-to-use"></a>
+## How to use<a name="how-to-use"></a>
 
-### Install NuGet package <a name="Installation"></a>
+### Install NuGet package<a name="Installation"></a>
 This package is available through Nuget Packages: https://www.nuget.org/packages/PowerUtils.xUnit.Extensions
 
 **Nuget**
@@ -62,9 +64,9 @@ Install-Package PowerUtils.xUnit.Extensions
 dotnet add package PowerUtils.xUnit.Extensions
 ```
 
-### Extensions <a name="Extensions"></a>
+### Extensions<a name="Extensions"></a>
 
-#### object.InvokeNonPublicMethod(); <a name="object.InvokeNonPublicMethod"></a>
+#### object.InvokeNonPublicMethod();<a name="object.InvokeNonPublicMethod"></a>
 Extension to invoke non-public methods
 
 ```csharp
@@ -113,7 +115,7 @@ await sampleClass.InvokeNonPublicMethodAsync("_methodName6Async");
 
 
 
-#### object.SetNonPublicProperty(); and object.SetNonPublicField() <a name="object.SetNonPublicProperty"></a>
+#### object.SetNonPublicProperty(); and object.SetNonPublicField()<a name="object.SetNonPublicProperty"></a>
 Extensions to set non-public properties and fields
 
 ```csharp
@@ -134,9 +136,9 @@ sampleClass.SetNonPublicField("_privateField", "Value");
 ```
 
 
-### Helpers <a name="Helpers"></a>
+### Helpers<a name="Helpers"></a>
 
-#### Sort tests by priority <a name="SortTestsByPriority"></a>
+#### Sort tests by priority<a name="SortTestsByPriority"></a>
 
 ```csharp
 [TestCaseOrderer(PriorityOrderer.Name, PriorityOrderer.Assembly)]
@@ -154,7 +156,7 @@ public class Tests
 }
 ```
 
-#### InvokeStaticNonPublicMethod <a name="InvokeStaticNonPublicMethod"></a>
+#### InvokeStaticNonPublicMethod<a name="InvokeStaticNonPublicMethod"></a>
 
 ```csharp
 public static class SampleClass
@@ -199,9 +201,9 @@ await ObjectInvoker.InvokeAsync(typeof(SampleClass), "_methodName6Async");
 ```
 
 
-### Factories <a name="Factories"></a>
+### Factories<a name="Factories"></a>
 
-#### ObjectFactory <a name="Factories-ObjectFactory"></a>
+#### ObjectFactory<a name="Factories-ObjectFactory"></a>
 Factory to create an object by non public constructor
 
 ```csharp
@@ -229,6 +231,6 @@ var obj2 = ObjectFactory.Create<TestObject>("My name", 50);
 
 
 
-## Contribution <a name="contribution"></a>
+## Contribution<a name="contribution"></a>
 
 If you have any questions, comments, or suggestions, please open an [issue](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/issues/new/choose) or create a [pull request](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/compare)
