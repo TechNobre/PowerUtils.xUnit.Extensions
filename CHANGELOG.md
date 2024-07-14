@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/compare/v3.0.1...v3.1.0) (2024-07-14)
+
+
+### Features
+
+* Added support to .NET8, .NET7 ([479748f](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/commit/479748f83bbb07758b3b72003c6a4faaf19ae996))
+
 ## [3.0.1](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/compare/v3.0.0...v3.0.1) (2022-09-28)
 
 
