@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerUtils.xUnit.Extensions", "src\PowerUtils.xUnit.Extensions.csproj", "{186C9A5F-4E0C-4681-A191-734BBA063038}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerUtils.xUnit.Extensions.Tests", "tests\PowerUtils.xUnit.Extensions.Tests.csproj", "{F6BCC261-5011-4F31-AF21-7EC34D6EA099}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerUtils.xUnit.Extensions.Tests", "tests\PowerUtils.xUnit.Extensions.Tests\PowerUtils.xUnit.Extensions.Tests.csproj", "{F6BCC261-5011-4F31-AF21-7EC34D6EA099}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.src", "1.src", "{27655A6F-567E-4A04-9BFA-F3E3F4CAA188}"
 EndProject
