@@ -45,7 +45,7 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\src\PowerUtils.xUnit.Extensions.csproj" />
+    <ProjectReference Include="..\..\src\PowerUtils.xUnit.Extensions.csproj" />
   </ItemGroup>
 
 
