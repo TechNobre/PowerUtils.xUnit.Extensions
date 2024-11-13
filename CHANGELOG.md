@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/compare/v3.1.0...v3.2.0) (2024-11-13)
+
+
+### Features
+
+* Added support to .NET9 ([4abb4a6](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/commit/4abb4a6508a77269e50b91a737b5c2bd29633583))
+
 # [3.1.0](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/compare/v3.0.1...v3.1.0) (2024-07-14)
 
 
