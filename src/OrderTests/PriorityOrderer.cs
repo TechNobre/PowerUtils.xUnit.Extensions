@@ -6,11 +6,15 @@ using Xunit.Sdk;
 
 namespace PowerUtils.xUnit.Extensions.OrderTests
 {
+    [Obsolete("This package has been discontinued because it never evolved, and the code present in this package does not justify its continuation. It is preferable to implement this code directly in the project if necessary.")]
     public class PriorityOrderer : ITestCaseOrderer
     {
+        [Obsolete("This package has been discontinued because it never evolved, and the code present in this package does not justify its continuation. It is preferable to implement this code directly in the project if necessary.")]
         public const string Name = "PowerUtils.xUnit.Extensions.OrderTests.PriorityOrderer";
+        [Obsolete("This package has been discontinued because it never evolved, and the code present in this package does not justify its continuation. It is preferable to implement this code directly in the project if necessary.")]
         public const string Assembly = "PowerUtils.xUnit.Extensions";
 
+        [Obsolete("This package has been discontinued because it never evolved, and the code present in this package does not justify its continuation. It is preferable to implement this code directly in the project if necessary.")]
         public IEnumerable<TTestCase> OrderTestCases<TTestCase>(IEnumerable<TTestCase> testCases)
             where TTestCase : ITestCase
         {

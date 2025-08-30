@@ -1,11 +1,14 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Reflection;
 using PowerUtils.xUnit.Extensions.Exceptions;
 
 namespace PowerUtils.xUnit.Extensions
 {
+    [Obsolete("This package has been discontinued because it never evolved, and the code present in this package does not justify its continuation. It is preferable to implement this code directly in the project if necessary.")]
     public static class ObjectFactory
     {
+        [Obsolete("This package has been discontinued because it never evolved, and the code present in this package does not justify its continuation. It is preferable to implement this code directly in the project if necessary.")]
         public static TObject Create<TObject>(params object[] inputParameters)
         {
             var constructorList = typeof(TObject).GetConstructors(BindingFlags.Instance | BindingFlags.NonPublic).ToList();
