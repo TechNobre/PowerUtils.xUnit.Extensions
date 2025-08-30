@@ -1,3 +1,15 @@
+# [4.0.0](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/compare/v3.2.0...v4.0.0) (2025-08-30)
+
+
+### Bug Fixes
+
+* Marked all implementations as `Obsolete` ([c7c612e](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/commit/c7c612e77aba69460c2852903a4f3513afd87081))
+
+
+### BREAKING CHANGES
+
+* Deprecated package
+
 # [3.2.0](https://github.com/TechNobre/PowerUtils.xUnit.Extensions/compare/v3.1.0...v3.2.0) (2024-11-13)
 
 
